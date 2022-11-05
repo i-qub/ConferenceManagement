@@ -1,0 +1,6 @@
+{
+  "name": "Attendance",
+  "version": "0.0.0",
+  "main": "Attendance.js",
+  "private": true
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Announcement",
+  "version": "0.0.0",
+  "main": "Announcement.js",
+  "private": true
+}

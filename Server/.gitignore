@@ -1,0 +1,9 @@
+
+library/iosPush/notificationCertificates
+library/iosPush/VoIPCertificates
+# .circleci
+Controller/logs
+logs
+.vscode
+certs/
+node_modules
