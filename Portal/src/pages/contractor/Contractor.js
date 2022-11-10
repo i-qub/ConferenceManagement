@@ -1,14 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
+import {
+  Button,
+  Box,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+} from "@material-ui/core";
+import tableIcons from "./Icons";
 import ConRegiPopup from "../../components/Popup/ConRegiPopup";
 import ConRegistration from "./conregistration/ConRegistration";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import MaterialTable from 'material-table';
+import MaterialTable from "material-table";
 import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import axios from 'axios';
+import axios from "axios";
 import ViewEmployees from "./ViewEmployees";
 import ViewEmployeesPopup from "../../components/Popup/ViewEmployeesPopup";
-
+import EditEmployeesPopup from "../../components/Popup/EditEmployeePopup";
+import ContractorEdit from "./conregistration/ContractorEdit";
+// import { useHistory } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
   overrides: {
@@ -17,18 +30,33 @@ const theme = createTheme({
         paddingTop: 10,
         paddingBottom: 10,
         "&:last-child": {
-          paddingRight: 5
-        }
-      }
-    }
-  }
+          paddingRight: 5,
+        },
+      },
+    },
+  },
 });
 
 function Contractor() {
   const [openRegiPopup, setOpenRegiPopup] = useState(false);
   const [openEmployeesPopup, setOpenEmployeesPopup] = useState(false);
+  const [openEditEmployeesPopup, setOpenEditEmployeePopup] = useState(false);
+
   const [contractor, setContractor] = useState("");
   const [token, setToken] = useState("");
+  // let history = useHistory();
+  // let navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpenForEdit = () => {
+    alert("Hi");
+    //openEditEmployeesPopup(true);
+    setOpenEditEmployeePopup(true);
+  };
+
+  const handleClickClose1 = () => {
+    setOpenEditEmployeePopup(false);
+  };
 
   const handleOpen = () => {
     setOpenEmployeesPopup(true);
@@ -47,12 +75,10 @@ function Contractor() {
   };
 
   const [view, setView] = useState([]);
-
   useEffect(() => {
-    axios.get('http://localhost:3000/con/viewContractor')
-      .then((response) => {
-        setView(response.data);
-      });
+    axios.get("http://localhost:3000/con/viewContractor").then((response) => {
+      setView(response.data);
+    });
   }, []);
 
   const [deactivationDate, setDeactivationDate] = useState("");
@@ -67,12 +93,23 @@ function Contractor() {
   };
 
   const deactivate = () => {
-    axios.post('http://localhost:3000/emp/deactivateEmp', {
+    axios.post("http://localhost:3000/emp/deactivateEmp", {
       token: token,
-      deactivationDate: deactivationDate
-    })
+      deactivationDate: deactivationDate,
+    });
     window.location.reload();
-  }
+  };
+
+  // const editUser = () => {
+  //   navigator;
+  // };
+
+  const deleteUser = async (id) => {
+    await axios.get(`http://localhost:3000/con/deleteMeeting?id=${id}`);
+    window.location.reload(true);
+    // history.push("/contractor");
+    //navigate("/contractor");
+  };
 
   return (
     <>
@@ -91,48 +128,47 @@ function Contractor() {
         <MaterialTable
           title="Conference List"
           columns={[
-            { title: 'Meeting Title', field: 'meettitle' },
-            { title: 'Meeting Date', field: 'meetdate', width: "40%" },
-            { title: 'Start Time', field: 'fromtime' },
-            { title: 'End Time', field: 'totime' },
-            { title: 'Priority', field: 'priority' },
-            { title: 'Conference Hall', field: 'confhall' },
-            { title: 'Total Members', field: 'totalmembers' },
-            { title: 'Organizer', field: 'meetingorganizer' },
-            { title: 'Email', field: 'email' },
-            { title: 'Mobile No.', field: 'mobile1' },
-            { title: 'Department', field: 'dept' }
+            { title: "Meeting Title", field: "meettitle" },
+            { title: "Meeting Date", field: "meetdate", width: "40%" },
+            { title: "Start Time", field: "fromtime" },
+            { title: "End Time", field: "totime" },
+            { title: "Priority", field: "priority" },
+            { title: "Conference Hall", field: "confhall" },
+            { title: "Total Members", field: "totalmembers" },
+            { title: "Organizer", field: "meetingorganizer" },
+            { title: "Email", field: "email" },
+            { title: "Mobile No.", field: "mobile1" },
+            { title: "Department", field: "dept" },
           ]}
-          fontSize='12px'
+          fontSize="12px"
           data={view}
           onRowClick={(event, rowData) => {
             const contractor = rowData.contractor;
             setContractor(contractor);
             handleOpen(true);
           }}
-          // actions={[
-          //   {
-          //     tooltip: 'Deactivate User',
-          //     onClick: (event, rowData) => {
-          //       event.stopPropagation();
-          //       setToken(rowData.token);
-          //       handleClickOpenDeactivation();
-          //     }
-          //   }
-          // ]}
-          components={{
-            Action: props => (
-              <Button
-                onClick={(event) => props.action.onClick(event, props.data)}
-                color="primary"
-                variant="contained"
-                style={{ textTransform: 'none' }}
-                size="small"
-              >
-                Deactivate
-              </Button>
-            ),
-          }}
+          actions={[
+            {
+              icon: tableIcons.Delete,
+              tooltip: "Delete User",
+              onClick: (event, rowData) => {
+                deleteUser(rowData._id);
+
+                //     }
+                // onClick: () => {
+
+                //   deleteUser();
+              },
+            },
+            {
+              icon: tableIcons.Edit,
+              tooltip: "Edit User",
+              onClick: () => {
+                handleOpenForEdit();
+                //   <Link to="http://localhost:9001/edit"></Link>; // editUser();
+              },
+            },
+          ]}
           options={{
             pageSize: 10,
             exportAllData: true,
@@ -140,66 +176,37 @@ function Contractor() {
             selection: false,
             sorting: false,
             headerStyle: {
-              backgroundColor: '#262626',
-              color: '#FFF',
-              fontSize: '14px',
-              padding: '15px',
-              paddingLeft: '15px',
-              zIndex: '1'
+              backgroundColor: "#262626",
+              color: "#FFF",
+              fontSize: "14px",
+              padding: "15px",
+              paddingLeft: "15px",
+              zIndex: "1",
             },
             rowStyle: {
               fontSize: 14,
-              backgroundColor: '#f3f3f3',
-              paging: 'none'
+              backgroundColor: "#f3f3f3",
+              paging: "none",
             },
-            actionsColumnIndex: -1
+            actionsColumnIndex: -1,
           }}
         />
       </MuiThemeProvider>
-      <div>
-        <Dialog open={openDeactivation} onClose={handleClickCloseDeactivation} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Select Deactivation Date</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="deactivationDate"
-              type="date"
-              fullWidth
-              onChange={(event) => { setDeactivationDate(event.target.value); }}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={deactivate} color="primary">
-              Deactivate
-            </Button>
-            <Button onClick={handleClickCloseDeactivation} color="secondary">
-              Cancle
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-      <ViewEmployeesPopup
-        openEmployeesPopup={openEmployeesPopup}
+      <EditEmployeesPopup
+        openEditEmployeesPopup={openEditEmployeesPopup}
         contractor={contractor}
         onClose={handleClickClose}
       >
-        <ViewEmployees
-          onSubmitClose={handleClose}
-          contractor={contractor}
-        />
-      </ViewEmployeesPopup>
-      <ConRegiPopup
-        openRegiPopup={openRegiPopup}
-        onClose={handleClose}
-      >
+        <ContractorEdit onSubmitClose={handleClose} contractor={contractor} />
+      </EditEmployeesPopup>
+      <ConRegiPopup openRegiPopup={openRegiPopup} onClose={handleClose}>
         <ConRegistration onSubmitClose={handleClose} />
       </ConRegiPopup>
       <br></br>
       <br></br>
       <br></br>
     </>
-  )
+  );
 }
 
 export default Contractor;
