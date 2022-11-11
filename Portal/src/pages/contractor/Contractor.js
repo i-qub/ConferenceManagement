@@ -22,6 +22,7 @@ import EditEmployeesPopup from "../../components/Popup/EditEmployeesPopup";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ContractorEdit from "./conregistration/ContractorEdit";
 
 const theme = createTheme({
   overrides: {
@@ -40,7 +41,7 @@ const theme = createTheme({
 function Contractor() {
   const [openRegiPopup, setOpenRegiPopup] = useState(false);
   const [openEmployeesPopup, setOpenEmployeesPopup] = useState(false);
-  
+  const [editData, setEditData] = useState([]);
 
   const [contractor, setContractor] = useState("");
   const [token, setToken] = useState("");
@@ -48,8 +49,11 @@ function Contractor() {
   // let navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
 
-  const handleOpenForEdit = () => {
+  const handleOpenForEdit = async (obj) => {
+    // console.log("++++",obj);
+    setEditData(obj);
     setOpenEmployeesPopup(true);
+    console.log("56", obj);
   };
 
   const handleClickClose1 = () => {
@@ -82,8 +86,6 @@ function Contractor() {
   const deleteUser = async (id) => {
     await axios.get(`http://localhost:3000/con/deleteMeeting?id=${id}`);
     window.location.reload(true);
-    // history.push("/contractor");
-    //navigate("/contractor");
   };
 
   return (
@@ -128,19 +130,14 @@ function Contractor() {
               tooltip: "Delete User",
               onClick: (event, rowData) => {
                 deleteUser(rowData._id);
-
-                //     }
-                // onClick: () => {
-
-                //   deleteUser();
               },
             },
             {
               icon: tableIcons.Edit,
               tooltip: "Edit User",
-              onClick: () => {
-                handleOpenForEdit();
-                //   <Link to="http://localhost:9001/edit"></Link>; // editUser();
+              onClick: (e, rowData) => {
+                handleOpenForEdit(rowData);
+                // <Link to="http://localhost:3000/con/update"></Link>; // editUser();
               },
             },
           ]}
@@ -172,7 +169,11 @@ function Contractor() {
         contractor={contractor}
         onClose={handleClickClose}
       >
-        <ViewEmployees onSubmitClose={handleClose} contractor={contractor} />
+        <ContractorEdit
+          onSubmitClose={handleClose}
+          contractor={contractor}
+          editData={editData}
+        />
       </EditEmployeesPopup>
       <ConRegiPopup openRegiPopup={openRegiPopup} onClose={handleClose}>
         <ConRegistration onSubmitClose={handleClose} />

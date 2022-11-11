@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +11,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -18,11 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ConRegistration(props) {
+export default function ContractorEdit(props) {
   const { onSubmitClose } = props;
   const classes = useStyles();
   const [status, setStatus] = useState(undefined);
-  const [meettitle, setName] = useState("");
+  const [_id, setId] = useState("");
+  const [meettitle, setMeettitle] = useState("");
   const [meetdate, setDOB] = useState("");
   const [fromtime, setFTime] = useState("");
   const [totime, setTTime] = useState("");
@@ -35,11 +38,31 @@ export default function ConRegistration(props) {
   const [mobile2, setMobile2] = useState("");
   const [dept, setDepartment] = useState("");
 
-  const newContractor = (event) => {
+  useEffect(() => {
+    // let mounted = true;
+    console.log("42", props.editData._id);
+    setId(props.editData._id);
+    setMeettitle(props.editData.meettitle);
+    setDOB(props.editData.meetdate);
+    setFTime(props.editData.fromtime);
+    setTTime(props.editData.totime);
+    setPriority(props.editData.priority);
+    setConfHall(props.editData.confhall);
+    setTotalMembers(props.editData.totalmembers);
+    setMeetingOrganizer(props.editData.meetingorganizer);
+    setEmail(props.editData.email);
+    setMobile1(props.editData.mobile1);
+    setMobile2(props.editData.mobile2);
+    setDepartment(props.editData.dept);
+  }, []);
+
+  const ContractorEdit = (event) => {
+    // const { id } = useParams();
     event.preventDefault();
     Axios.post(
-      "http://localhost:3000/con/addContractor",
+      "http://localhost:3000/con/update",
       {
+        id: _id,
         meettitle: meettitle,
         meetdate: meetdate,
         fromtime: fromtime,
@@ -60,15 +83,16 @@ export default function ConRegistration(props) {
 
   return (
     <>
-      <form onSubmit={newContractor}>
+      <form onSubmit={ContractorEdit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
               required
               label="Conference Meeting Title"
               fullWidth
+              value={meettitle}
               onChange={(event) => {
-                setName(event.target.value);
+                setMeettitle(event.target.value);
               }}
             />
           </Grid>
@@ -77,6 +101,7 @@ export default function ConRegistration(props) {
               type="date"
               label="Metting date"
               fullWidth
+              value={meetdate}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -89,6 +114,7 @@ export default function ConRegistration(props) {
             <TextField
               label="From Time"
               fullWidth
+              value={fromtime}
               onChange={(event) => {
                 setFTime(event.target.value);
               }}
@@ -98,6 +124,7 @@ export default function ConRegistration(props) {
             <TextField
               label="To Time"
               fullWidth
+              value={totime}
               onChange={(event) => {
                 setTTime(event.target.value);
               }}
@@ -107,6 +134,7 @@ export default function ConRegistration(props) {
             <TextField
               label="Priority"
               fullWidth
+              value={priority}
               onChange={(event) => {
                 setPriority(event.target.value);
               }}
@@ -126,6 +154,7 @@ export default function ConRegistration(props) {
                 onChange={(event) => {
                   setConfHall(event.target.value);
                 }}
+                value={confhall}
                 style={{ width: "100%" }}
               >
                 <option aria-label="None" value="" />
@@ -138,6 +167,7 @@ export default function ConRegistration(props) {
             <TextField
               label="Number Of Members"
               fullWidth
+              value={totalmembers}
               onChange={(event) => {
                 setTotalMembers(event.target.value);
               }}
@@ -148,6 +178,7 @@ export default function ConRegistration(props) {
               required
               label="Meeting Organizer"
               fullWidth
+              value={meetingorganizer}
               onChange={(event) => {
                 setMeetingOrganizer(event.target.value);
               }}
@@ -158,6 +189,7 @@ export default function ConRegistration(props) {
               required
               label="Email"
               fullWidth
+              value={email}
               onChange={(event) => {
                 setEmail(event.target.value);
               }}
@@ -168,6 +200,7 @@ export default function ConRegistration(props) {
               required
               label="Mobile No."
               fullWidth
+              value={mobile1}
               inputProps={{ maxLength: 10 }}
               onChange={(event) => {
                 setMobile1(event.target.value);
@@ -178,6 +211,7 @@ export default function ConRegistration(props) {
             <TextField
               label="Alternate No."
               fullWidth
+              value={mobile2}
               inputProps={{ maxLength: 10 }}
               onChange={(event) => {
                 setMobile2(event.target.value);
@@ -195,6 +229,7 @@ export default function ConRegistration(props) {
               </InputLabel>
               <Select
                 native
+                value={dept}
                 onChange={(event) => {
                   setDepartment(event.target.value);
                 }}
@@ -222,7 +257,7 @@ export default function ConRegistration(props) {
                 color="primary"
                 variant="contained"
               >
-                Submit
+                Update
               </Button>
             </Grid>
           </Grid>
