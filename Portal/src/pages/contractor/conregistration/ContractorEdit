@@ -29,7 +29,7 @@ const theme = createTheme({
   },
 });
 
-function ViewEmployees(props) {
+function ContractorEdit(props) {
   const { contractor } = props;
   const [view, setView] = useState([]);
 
@@ -109,8 +109,7 @@ function ViewEmployees(props) {
             { title: "Organizer", field: "meetingorganizer" },
             { title: "Email", field: "email" },
             { title: "Mobile No.", field: "mobile1" },
-          
-          
+
             { title: "Department", field: "dept" },
           ]}
           fontSize="12px"
@@ -192,7 +191,7 @@ function ViewEmployees(props) {
           <DialogActions>
             <Button onClick={EmployeeDetailsPopup} color="primary">
               Employee Details
-            </Button> 
+            </Button>
             <Button onClick={SkillDetailsPopup} color="primary">
               Skill Details
             </Button>
@@ -253,4 +252,4 @@ function ViewEmployees(props) {
   );
 }
 
-export default ViewEmployees;
+export default ContractorEdit;

@@ -2,14 +2,14 @@ import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import React from "react";
 
-export default function RegiPopup(props) {
-  const { children, openRegiPopup, onClose } = props;
+export default function EditEmployeesPopup(props) {
+  const { children, onClose, openEmployeesPopup } = props;
   return (
-    <Dialog open={openRegiPopup} maxWidth="md">
+    <Dialog open={openEmployeesPopup} maxWidth="lg">
       <DialogTitle>
         <div style={{ display: "flex" }}>
           <div style={{ flexGrow: 1, fontWeight: "bold", paddingTop: "5px" }}>
-            Add Conference Meeting
+           Edit Employee List
           </div>
           <Button
             style={{
