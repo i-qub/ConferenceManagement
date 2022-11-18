@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
   Button,
-  Box,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  TextField,
+  // Box,
+  // Dialog,
+  // DialogActions,
+  // DialogContent,
+  // DialogTitle,
+  // TextField,
 } from "@material-ui/core";
 import tableIcons from "./Icons";
 import ConRegiPopup from "../../components/Popup/ConRegiPopup";
@@ -15,13 +15,13 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import MaterialTable from "material-table";
 import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
-import ViewEmployees from "./ViewEmployees";
-import ViewEmployeesPopup from "../../components/Popup/ViewEmployeesPopup";
+// import ViewEmployees from "./ViewEmployees";
+// import ViewEmployeesPopup from "../../components/Popup/ViewEmployeesPopup";
 import EditEmployeesPopup from "../../components/Popup/EditEmployeesPopup";
 // import ContractorEdit from "./conregistration/ContractorEdit";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import ContractorEdit from "./conregistration/ContractorEdit";
 
 const theme = createTheme({
@@ -44,10 +44,10 @@ function Contractor() {
   const [editData, setEditData] = useState([]);
 
   const [contractor, setContractor] = useState("");
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   // let history = useHistory();
   // let navigate = useNavigate();
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
   const handleOpenForEdit = async (obj) => {
     // console.log("++++",obj);
@@ -56,9 +56,9 @@ function Contractor() {
     console.log("56", obj);
   };
 
-  const handleClickClose1 = () => {
-    setOpenEmployeesPopup(false);
-  };
+  // const handleClickClose1 = () => {
+  //   setOpenEmployeesPopup(false);
+  // };
 
   const handleOpen = () => {
     setOpenEmployeesPopup(true);

@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Chart from "react-google-charts";
 import { getUser } from "../../components/Utils/Common";
-import {
-  Grid,
-  LinearProgress,
-} from "@material-ui/core";
+import { Grid, LinearProgress } from "@material-ui/core";
 
 // styles
 import useStyles from "./styles";
@@ -15,6 +12,7 @@ import Widget from "../../components/Widget";
 import PageTitle from "../../components/PageTitle";
 import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
+// import Demo from "./components/Calendra/Demo";
 
 export default function Dashboard(props) {
   var classes = useStyles();
@@ -26,29 +24,34 @@ export default function Dashboard(props) {
 
   var getShift;
 
-  if (hour >= 8 && hour <= 15) { getShift = "Shift I"; } else if (hour >= 16 && hour <= 23) { getShift = "Shift II"; }
-  else { getShift = "Shift III"; }
+  if (hour >= 8 && hour <= 15) {
+    getShift = "Shift I";
+  } else if (hour >= 16 && hour <= 23) {
+    getShift = "Shift II";
+  } else {
+    getShift = "Shift III";
+  }
 
   const shift = getShift;
 
-  const [shell_core, set_shell_core] = useState('');
-  const [cold_box, set_cold_box] = useState('');
-  const [arpa_900, set_arpa_900] = useState('');
-  const [arpa_450, set_arpa_450] = useState('');
-  const [w_b_q_3, set_w_b_q_3] = useState('');
-  const [hand_moulding, set_hand_moulding] = useState('');
-  const [melting, set_melting] = useState('');
-  const [fettling, set_fettling] = useState('');
+  const [shell_core, set_shell_core] = useState("");
+  const [cold_box, set_cold_box] = useState("");
+  const [arpa_900, set_arpa_900] = useState("");
+  const [arpa_450, set_arpa_450] = useState("");
+  const [w_b_q_3, set_w_b_q_3] = useState("");
+  const [hand_moulding, set_hand_moulding] = useState("");
+  const [melting, set_melting] = useState("");
+  const [fettling, set_fettling] = useState("");
   const [isLoading, setLoading] = useState(true);
 
-  const [reqs_shell_core, req_shell_core] = useState('');
-  const [reqs_cold_box, req_cold_box] = useState('');
-  const [reqs_arpa_900, req_arpa_900] = useState('');
-  const [reqs_arpa_450, req_arpa_450] = useState('');
-  const [reqs_w_b_q_3, req_w_b_q_3] = useState('');
-  const [reqs_hand_moulding, req_hand_moulding] = useState('');
-  const [reqs_melting, req_melting] = useState('');
-  const [reqs_fettling, req_fettling] = useState('');
+  const [reqs_shell_core, req_shell_core] = useState("");
+  const [reqs_cold_box, req_cold_box] = useState("");
+  const [reqs_arpa_900, req_arpa_900] = useState("");
+  const [reqs_arpa_450, req_arpa_450] = useState("");
+  const [reqs_w_b_q_3, req_w_b_q_3] = useState("");
+  const [reqs_hand_moulding, req_hand_moulding] = useState("");
+  const [reqs_melting, req_melting] = useState("");
+  const [reqs_fettling, req_fettling] = useState("");
 
   // useEffect(() => {
   //   axios.get('http://localhost:3000/req/shell_core').then((response) => { req_shell_core(response.data[0].requirement); });
@@ -70,8 +73,24 @@ export default function Dashboard(props) {
   //   axios.post('http://localhost:3000/mp/getAllocationData_fettling', { verified: 'YES', shift: shift }).then((response) => { set_fettling(response.data[0].count); setLoading(false); });
   // }, [shift]);
 
-  var requirements = parseInt(reqs_shell_core) + parseInt(reqs_cold_box) + parseInt(reqs_arpa_900) + parseInt(reqs_arpa_450) + parseInt(reqs_w_b_q_3) + parseInt(reqs_hand_moulding) + parseInt(reqs_melting) + parseInt(reqs_fettling);
-  var availability = parseInt(shell_core) + parseInt(cold_box) + parseInt(arpa_900) + parseInt(arpa_450) + parseInt(w_b_q_3) + parseInt(hand_moulding) + parseInt(melting) + parseInt(fettling);
+  var requirements =
+    parseInt(reqs_shell_core) +
+    parseInt(reqs_cold_box) +
+    parseInt(reqs_arpa_900) +
+    parseInt(reqs_arpa_450) +
+    parseInt(reqs_w_b_q_3) +
+    parseInt(reqs_hand_moulding) +
+    parseInt(reqs_melting) +
+    parseInt(reqs_fettling);
+  var availability =
+    parseInt(shell_core) +
+    parseInt(cold_box) +
+    parseInt(arpa_900) +
+    parseInt(arpa_450) +
+    parseInt(w_b_q_3) +
+    parseInt(hand_moulding) +
+    parseInt(melting) +
+    parseInt(fettling);
   var diff_shell_core = reqs_shell_core - shell_core;
   var diff_cold_box = reqs_cold_box - cold_box;
   var diff_arpa_900 = reqs_arpa_900 - arpa_900;
@@ -81,19 +100,19 @@ export default function Dashboard(props) {
   var diff_melting = reqs_melting - melting;
   var diff_fettling = reqs_fettling - fettling;
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div className="App">{/* <Demo /> */}hii</div>;
   }
   return (
     <>
       <PageTitle title="Dashboard" />
       <div>
         {(() => {
-          if (data === 'hr') {
+          if (data === "hr") {
             return (
               <Grid container spacing={4}>
                 <Grid item lg={4} md={8} sm={6} xs={12}>
                   <Widget
-                    title='Conference Management'
+                    title="Conference Management"
                     upperTitle
                     className={classes.card}
                     bodyClass={classes.fullHeightBody}
@@ -141,7 +160,9 @@ export default function Dashboard(props) {
                       <LinearProgress
                         variant="determinate"
                         value={100}
-                        classes={{ barColorPrimary: classes.progressBarPrimary }}
+                        classes={{
+                          barColorPrimary: classes.progressBarPrimary,
+                        }}
                         className={classes.progress}
                       />
                     </div>
@@ -158,7 +179,9 @@ export default function Dashboard(props) {
                       <LinearProgress
                         variant="determinate"
                         value={availability / 2}
-                        classes={{ barColorPrimary: classes.progressBarWarning }}
+                        classes={{
+                          barColorPrimary: classes.progressBarWarning,
+                        }}
                         className={classes.progress}
                       />
                     </div>
@@ -172,20 +195,20 @@ export default function Dashboard(props) {
                     bodyClass={classes.fullHeightBody}
                   >
                     <Chart
-                      width={'90%'}
+                      width={"90%"}
                       height="188px"
                       chartType="PieChart"
                       loader={<div>Loading Chart</div>}
                       data={[
-                        ['Task', 'Hours per Day'],
-                        ['Shell Core', diff_shell_core],
-                        ['Cold Box', diff_cold_box],
-                        ['Arpa 900', diff_arpa_900],
-                        ['Arpa 450', diff_arpa_450],
-                        ['W.B.Q.3', diff_w_b_q_3],
-                        ['Hand Moulding', diff_hand_moulding],
-                        ['Melting', diff_melting],
-                        ['Fettling', diff_fettling],
+                        ["Task", "Hours per Day"],
+                        ["Shell Core", diff_shell_core],
+                        ["Cold Box", diff_cold_box],
+                        ["Arpa 900", diff_arpa_900],
+                        ["Arpa 450", diff_arpa_450],
+                        ["W.B.Q.3", diff_w_b_q_3],
+                        ["Hand Moulding", diff_hand_moulding],
+                        ["Melting", diff_melting],
+                        ["Fettling", diff_fettling],
                       ]}
                       options={{
                         is3D: true,
@@ -193,14 +216,14 @@ export default function Dashboard(props) {
                     />
                   </Widget>
                 </Grid>
-              </Grid >
-            )
-          }else if (data === 'hod') {
+              </Grid>
+            );
+          } else if (data === "hod") {
             return (
               <Grid container spacing={4}>
                 <Grid item lg={4} md={8} sm={6} xs={12}>
                   <Widget
-                    title='Manpower Performance'
+                    title="Manpower Performance"
                     upperTitle
                     className={classes.card}
                     bodyClass={classes.fullHeightBody}
@@ -248,7 +271,9 @@ export default function Dashboard(props) {
                       <LinearProgress
                         variant="determinate"
                         value={100}
-                        classes={{ barColorPrimary: classes.progressBarPrimary }}
+                        classes={{
+                          barColorPrimary: classes.progressBarPrimary,
+                        }}
                         className={classes.progress}
                       />
                     </div>
@@ -265,7 +290,9 @@ export default function Dashboard(props) {
                       <LinearProgress
                         variant="determinate"
                         value={availability / 2}
-                        classes={{ barColorPrimary: classes.progressBarWarning }}
+                        classes={{
+                          barColorPrimary: classes.progressBarWarning,
+                        }}
                         className={classes.progress}
                       />
                     </div>
@@ -279,20 +306,20 @@ export default function Dashboard(props) {
                     bodyClass={classes.fullHeightBody}
                   >
                     <Chart
-                      width={'90%'}
+                      width={"90%"}
                       height="188px"
                       chartType="PieChart"
                       loader={<div>Loading Chart</div>}
                       data={[
-                        ['Task', 'Hours per Day'],
-                        ['Shell Core', diff_shell_core],
-                        ['Cold Box', diff_cold_box],
-                        ['Arpa 900', diff_arpa_900],
-                        ['Arpa 450', diff_arpa_450],
-                        ['W.B.Q.3', diff_w_b_q_3],
-                        ['Hand Moulding', diff_hand_moulding],
-                        ['Melting', diff_melting],
-                        ['Fettling', diff_fettling],
+                        ["Task", "Hours per Day"],
+                        ["Shell Core", diff_shell_core],
+                        ["Cold Box", diff_cold_box],
+                        ["Arpa 900", diff_arpa_900],
+                        ["Arpa 450", diff_arpa_450],
+                        ["W.B.Q.3", diff_w_b_q_3],
+                        ["Hand Moulding", diff_hand_moulding],
+                        ["Melting", diff_melting],
+                        ["Fettling", diff_fettling],
                       ]}
                       options={{
                         is3D: true,
@@ -300,14 +327,14 @@ export default function Dashboard(props) {
                     />
                   </Widget>
                 </Grid>
-              </Grid >
-            )
-          }else if (data === 'employee') {
+              </Grid>
+            );
+          } else if (data === "employee") {
             return (
               <Grid container spacing={4}>
                 <Grid item lg={4} md={8} sm={6} xs={12}>
                   <Widget
-                    title='Conference Management'
+                    title="Conference Management"
                     upperTitle
                     className={classes.card}
                     bodyClass={classes.fullHeightBody}
@@ -355,7 +382,9 @@ export default function Dashboard(props) {
                       <LinearProgress
                         variant="determinate"
                         value={100}
-                        classes={{ barColorPrimary: classes.progressBarPrimary }}
+                        classes={{
+                          barColorPrimary: classes.progressBarPrimary,
+                        }}
                         className={classes.progress}
                       />
                     </div>
@@ -372,7 +401,9 @@ export default function Dashboard(props) {
                       <LinearProgress
                         variant="determinate"
                         value={availability / 2}
-                        classes={{ barColorPrimary: classes.progressBarWarning }}
+                        classes={{
+                          barColorPrimary: classes.progressBarWarning,
+                        }}
                         className={classes.progress}
                       />
                     </div>
@@ -386,20 +417,20 @@ export default function Dashboard(props) {
                     bodyClass={classes.fullHeightBody}
                   >
                     <Chart
-                      width={'90%'}
+                      width={"90%"}
                       height="188px"
                       chartType="PieChart"
                       loader={<div>Loading Chart</div>}
                       data={[
-                        ['Task', 'Hours per Day'],
-                        ['Shell Core', diff_shell_core],
-                        ['Cold Box', diff_cold_box],
-                        ['Arpa 900', diff_arpa_900],
-                        ['Arpa 450', diff_arpa_450],
-                        ['W.B.Q.3', diff_w_b_q_3],
-                        ['Hand Moulding', diff_hand_moulding],
-                        ['Melting', diff_melting],
-                        ['Fettling', diff_fettling],
+                        ["Task", "Hours per Day"],
+                        ["Shell Core", diff_shell_core],
+                        ["Cold Box", diff_cold_box],
+                        ["Arpa 900", diff_arpa_900],
+                        ["Arpa 450", diff_arpa_450],
+                        ["W.B.Q.3", diff_w_b_q_3],
+                        ["Hand Moulding", diff_hand_moulding],
+                        ["Melting", diff_melting],
+                        ["Fettling", diff_fettling],
                       ]}
                       options={{
                         is3D: true,
@@ -407,13 +438,10 @@ export default function Dashboard(props) {
                     />
                   </Widget>
                 </Grid>
-              </Grid >
-            )
-          }
-          else {
-            return (
-              <h2>Welcome "{user[0].name}" Have Nice Day..!</h2>
-            )
+              </Grid>
+            );
+          } else {
+            return <h2>Welcome "{user[0].name}" Have Nice Day..!</h2>;
           }
         })()}
       </div>

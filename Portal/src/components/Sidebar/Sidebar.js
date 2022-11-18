@@ -3,17 +3,17 @@ import { getUser } from "../Utils/Common";
 import { Drawer, IconButton, List } from "@material-ui/core";
 import {
   Home as HomeIcon,
-  NotificationsNone as NotificationsIcon,
-  CalendarToday as CalendarTodayIcon,
-  MonetizationOn as MonetizationOnIcon,
+  // NotificationsNone as NotificationsIcon,
+  // CalendarToday as CalendarTodayIcon,
+  // MonetizationOn as MonetizationOnIcon,
   Portrait as PortraitIcon,
-  MenuBook as MenuBookIcon,
-  EventBusy as EventBusyIcon,
-  Group as GroupIcon,
-  Person as PersonIcon,
-  DonutLarge as DonutLargeIcon,
+  // MenuBook as MenuBookIcon,
+  // EventBusy as EventBusyIcon,
+  // Group as GroupIcon,
+  // Person as PersonIcon,
+  // DonutLarge as DonutLargeIcon,
   ArrowBack as ArrowBackIcon,
-  PersonPinCircle as PersonPinCircleIcon
+  PersonPinCircle as PersonPinCircleIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -34,7 +34,7 @@ import {
 
 const hrMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
-  { id: 1, label: "Contractor", link: "/contractor", icon: <PortraitIcon />, },
+  { id: 1, label: "Contractor", link: "/contractor", icon: <PortraitIcon /> },
   // { id: 2, label: "Employees", link: "/employee", icon: <PersonIcon />, },
   // { id: 3, label: "Manpower", link: "/manpower", icon: <GroupIcon />, },
   // { id: 4, label: "Leave Management", link: "/leave", icon: <EventBusyIcon />, },
@@ -48,7 +48,7 @@ const hrMenu = [
 const hodMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
   // { id: 1, label: "Manpower", link: "/manpower", icon: <GroupIcon />, },
-  { id: 1, label: "Contractor", link: "/contractor", icon: <PortraitIcon />, },
+  { id: 1, label: "Contractor", link: "/contractor", icon: <PortraitIcon /> },
   // { id: 3, label: "Employees", link: "/employee", icon: <PersonIcon />, },
   // { id: 4, label: "Allocation", link: "/allocation", icon: <PersonPinCircleIcon />, },
   // { id: 5, label: "Process Info", link: "/process", icon: <DonutLargeIcon />, },
@@ -59,7 +59,12 @@ const hodMenu = [
 
 const contractorMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
-  { id: 1, label: "Contractor", link: "/contractorNew", icon: <PortraitIcon />, },
+  {
+    id: 1,
+    label: "Contractor",
+    link: "/contractorNew",
+    icon: <PortraitIcon />,
+  },
   // { id: 1, label: "Employees", link: "/employee", icon: <PersonIcon />, },
   // { id: 2, label: "Leave Management", link: "/leave", icon: <EventBusyIcon />, },
   // { id: 3, label: "Attendance", link: "/attendance", icon: <CalendarTodayIcon />, },
@@ -68,12 +73,21 @@ const contractorMenu = [
 
 const empMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
-  { id: 1, label: "Contractor", link: "/contractorNew", icon: <PortraitIcon />, },
-  { id: 2, label: "Work Location", link: "/location", icon: <PersonPinCircleIcon /> },
+  {
+    id: 1,
+    label: "Contractor",
+    link: "/contractorNew",
+    icon: <PortraitIcon />,
+  },
+  {
+    id: 2,
+    label: "Work Location",
+    link: "/location",
+    icon: <PersonPinCircleIcon />,
+  },
   // { id: 2, label: "Leave Management", link: "/leave", icon: <EventBusyIcon />, },
   // { id: 3, label: "Attendance", link: "/attendance", icon: <CalendarTodayIcon />, },
   // { id: 4, label: "Announcement", link: "/announcement", icon: <NotificationsIcon />, }
-  
 ];
 
 function Sidebar({ location }) {
@@ -117,17 +131,20 @@ function Sidebar({ location }) {
           <IconButton onClick={() => toggleSidebar(layoutDispatch)}>
             <ArrowBackIcon
               classes={{
-                root: classNames(classes.headerIcon, classes.headerIconCollapse),
+                root: classNames(
+                  classes.headerIcon,
+                  classes.headerIconCollapse,
+                ),
               }}
             />
           </IconButton>
         </div>
         <div>
           {(() => {
-            if (data === 'hr') {
+            if (data === "hr") {
               return (
                 <List className={classes.sidebarList}>
-                  {hrMenu.map(link => (
+                  {hrMenu.map((link) => (
                     <SidebarLink
                       key={link.id}
                       location={location}
@@ -136,12 +153,11 @@ function Sidebar({ location }) {
                     />
                   ))}
                 </List>
-              )
-            } 
-            else if (data === 'hod') {
+              );
+            } else if (data === "hod") {
               return (
                 <List className={classes.sidebarList}>
-                  {hodMenu.map(link => (
+                  {hodMenu.map((link) => (
                     <SidebarLink
                       key={link.id}
                       location={location}
@@ -150,26 +166,11 @@ function Sidebar({ location }) {
                     />
                   ))}
                 </List>
-              )
-            } 
-            else if (data === 'employee') {
-              return (             
-                <List className={classes.sidebarList}>
-                  {empMenu.map(link => (
-                    <SidebarLink
-                      key={link.id}
-                      location={location}
-                      isSidebarOpened={isSidebarOpened}
-                      {...link}
-                    />
-                  ))}
-                </List>
-              )
-            }
-             else {
+              );
+            } else if (data === "employee") {
               return (
                 <List className={classes.sidebarList}>
-                  {contractorMenu.map(link => (
+                  {empMenu.map((link) => (
                     <SidebarLink
                       key={link.id}
                       location={location}
@@ -178,7 +179,20 @@ function Sidebar({ location }) {
                     />
                   ))}
                 </List>
-              )
+              );
+            } else {
+              return (
+                <List className={classes.sidebarList}>
+                  {contractorMenu.map((link) => (
+                    <SidebarLink
+                      key={link.id}
+                      location={location}
+                      isSidebarOpened={isSidebarOpened}
+                      {...link}
+                    />
+                  ))}
+                </List>
+              );
             }
           })()}
         </div>

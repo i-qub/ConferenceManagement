@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormLabel from "@material-ui/core/FormLabel";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Radio from "@material-ui/core/Radio";
+// import RadioGroup from "@material-ui/core/RadioGroup";
+// import FormLabel from "@material-ui/core/FormLabel";
 import { Button } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ConRegistration(props) {
   const { onSubmitClose } = props;
   const classes = useStyles();
-  const [status, setStatus] = useState(undefined);
+  // const [status, setStatus] = useState(undefined);
   const [meettitle, setName] = useState("");
   const [meetdate, setDOB] = useState("");
   const [fromtime, setFTime] = useState("");
@@ -87,6 +87,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="time"
               label="From Time"
               fullWidth
               onChange={(event) => {
@@ -96,6 +97,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="time"
               label="To Time"
               fullWidth
               onChange={(event) => {
@@ -155,6 +157,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="email"
               required
               label="Email"
               fullWidth
@@ -165,6 +168,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="number"
               required
               label="Mobile No."
               fullWidth
@@ -176,6 +180,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="number"
               label="Alternate No."
               fullWidth
               inputProps={{ maxLength: 10 }}

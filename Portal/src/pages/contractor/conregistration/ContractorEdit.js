@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormLabel from "@material-ui/core/FormLabel";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Radio from "@material-ui/core/Radio";
+// import RadioGroup from "@material-ui/core/RadioGroup";
+// import FormLabel from "@material-ui/core/FormLabel";
 import { Button } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+// import axios from "axios";
+// import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ContractorEdit(props) {
   const { onSubmitClose } = props;
   const classes = useStyles();
-  const [status, setStatus] = useState(undefined);
+  // const [status, setStatus] = useState(undefined);
   const [_id, setId] = useState("");
   const [meettitle, setMeettitle] = useState("");
   const [meetdate, setDOB] = useState("");
