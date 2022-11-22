@@ -1,24 +1,31 @@
 export const appointments = [
   {
     title: "Website Re-Design Plan",
+    startDate: new Date(2018, 5, 25, 9, 0),
+    endDate: new Date(2018, 5, 25, 11, 30),
+    id: 0,
+    location: "Conf",
+  },
+  {
+    title: "Website Re-Design Plan",
     startDate: new Date(2018, 5, 25, 9, 35),
     endDate: new Date(2018, 5, 25, 11, 30),
     id: 0,
-    location: "Room 1",
+    location: "L1",
   },
   {
     title: "Book Flights to San Fran for Sales Trip",
     startDate: new Date(2018, 5, 25, 12, 11),
     endDate: new Date(2018, 5, 25, 13, 0),
     id: 1,
-    location: "Room 1",
+    location: "L1",
   },
   {
     title: "Install New Router in Dev Room",
     startDate: new Date(2018, 5, 25, 14, 30),
     endDate: new Date(2018, 5, 25, 15, 35),
     id: 2,
-    location: "Room 2",
+    location: "Conf",
   },
   {
     title: "Approve Personal Computer Upgrade Plan",
@@ -67,15 +74,15 @@ export const appointments = [
     startDate: new Date(2018, 5, 28, 11, 0),
     endDate: new Date(2018, 5, 28, 12, 0),
     id: 9,
-    location: "Room 3",
+    location: "L1",
   },
-  {
-    title: "Prepare 2015 Marketing Plan",
-    startDate: new Date(2018, 5, 28, 11, 0),
-    endDate: new Date(2018, 5, 28, 13, 30),
-    id: 10,
-    location: "Room 1",
-  },
+  // {
+  //   title: "Prepare 2015 Marketing Plan",
+  //   startDate: new Date(2018, 5, 28, 11, 0),
+  //   endDate: new Date(2018, 5, 28, 13, 30),
+  //   id: 10,
+  //   location: "Confre",
+  // },
   {
     title: "Brochure Design Review",
     startDate: new Date(2018, 5, 28, 14, 0),

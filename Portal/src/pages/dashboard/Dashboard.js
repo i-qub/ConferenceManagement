@@ -1,57 +1,58 @@
+import { Button, Box } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Chart from "react-google-charts";
-import { getUser } from "../../components/Utils/Common";
-import { Grid, LinearProgress } from "@material-ui/core";
+// import axios from "axios";
+// import Chart from "react-google-charts";
+// import { getUser } from "../../components/Utils/Common";
+// import { Grid, LinearProgress } from "@materi/al-ui/core";
 
 // styles
-import useStyles from "./styles";
+// import useStyles from "./styles";
 
-// components
-import Widget from "../../components/Widget";
+//components
+import Widget from "../..//components/Widget";
 import PageTitle from "../../components/PageTitle";
-import { Typography } from "../../components/Wrappers";
-import Dot from "../../components/Sidebar/components/Dot";
-// import Demo from "./components/Calendra/Demo";
+// import { Typography } from "../../components/Wrappers";
+// import Dot from "../../components/Sidebar/components/Dot";
+import Demo from "./components/Calendra/Demo";
 
-export default function Dashboard(props) {
-  var classes = useStyles();
-  const user = getUser();
-  var data = user[0].role;
-  var date = new Date();
-  // var time = date.toLocaleTimeString("en-US", { timeZone: 'Asia/Kolkata' });
-  var hour = date.getHours();
+export default function Dashboard() {
+  // var classes = useStyles();
+  // const user = getUser();
+  // var data = user[0].role;
+  // var date = new Date();
+  // // var time = date.toLocaleTimeString("en-US", { timeZone: 'Asia/Kolkata' });
+  // var hour = date.getHours();
 
-  var getShift;
+  // var getShift;
 
-  if (hour >= 8 && hour <= 15) {
-    getShift = "Shift I";
-  } else if (hour >= 16 && hour <= 23) {
-    getShift = "Shift II";
-  } else {
-    getShift = "Shift III";
-  }
+  // if (hour >= 8 && hour <= 15) {
+  //   getShift = "Shift I";
+  // } else if (hour >= 16 && hour <= 23) {
+  //   getShift = "Shift II";
+  // } else {
+  //   getShift = "Shift III";
+  // }
 
-  const shift = getShift;
+  // const shift = getShift;
 
-  const [shell_core, set_shell_core] = useState("");
-  const [cold_box, set_cold_box] = useState("");
-  const [arpa_900, set_arpa_900] = useState("");
-  const [arpa_450, set_arpa_450] = useState("");
-  const [w_b_q_3, set_w_b_q_3] = useState("");
-  const [hand_moulding, set_hand_moulding] = useState("");
-  const [melting, set_melting] = useState("");
-  const [fettling, set_fettling] = useState("");
-  const [isLoading, setLoading] = useState(true);
+  // const [shell_core, set_shell_core] = useState("");
+  // const [cold_box, set_cold_box] = useState("");
+  // const [arpa_900, set_arpa_900] = useState("");
+  // const [arpa_450, set_arpa_450] = useState("");
+  // const [w_b_q_3, set_w_b_q_3] = useState("");
+  // const [hand_moulding, set_hand_moulding] = useState("");
+  // const [melting, set_melting] = useState("");
+  // const [fettling, set_fettling] = useState("");
+  // const [isLoading, setLoading] = useState(true);
 
-  const [reqs_shell_core, req_shell_core] = useState("");
-  const [reqs_cold_box, req_cold_box] = useState("");
-  const [reqs_arpa_900, req_arpa_900] = useState("");
-  const [reqs_arpa_450, req_arpa_450] = useState("");
-  const [reqs_w_b_q_3, req_w_b_q_3] = useState("");
-  const [reqs_hand_moulding, req_hand_moulding] = useState("");
-  const [reqs_melting, req_melting] = useState("");
-  const [reqs_fettling, req_fettling] = useState("");
+  // const [reqs_shell_core, req_shell_core] = useState("");
+  // const [reqs_cold_box, req_cold_box] = useState("");
+  // const [reqs_arpa_900, req_arpa_900] = useState("");
+  // const [reqs_arpa_450, req_arpa_450] = useState("");
+  // const [reqs_w_b_q_3, req_w_b_q_3] = useState("");
+  // const [reqs_hand_moulding, req_hand_moulding] = useState("");
+  // const [reqs_melting, req_melting] = useState("");
+  // const [reqs_fettling, req_fettling] = useState("");
 
   // useEffect(() => {
   //   axios.get('http://localhost:3000/req/shell_core').then((response) => { req_shell_core(response.data[0].requirement); });
@@ -73,39 +74,66 @@ export default function Dashboard(props) {
   //   axios.post('http://localhost:3000/mp/getAllocationData_fettling', { verified: 'YES', shift: shift }).then((response) => { set_fettling(response.data[0].count); setLoading(false); });
   // }, [shift]);
 
-  var requirements =
-    parseInt(reqs_shell_core) +
-    parseInt(reqs_cold_box) +
-    parseInt(reqs_arpa_900) +
-    parseInt(reqs_arpa_450) +
-    parseInt(reqs_w_b_q_3) +
-    parseInt(reqs_hand_moulding) +
-    parseInt(reqs_melting) +
-    parseInt(reqs_fettling);
-  var availability =
-    parseInt(shell_core) +
-    parseInt(cold_box) +
-    parseInt(arpa_900) +
-    parseInt(arpa_450) +
-    parseInt(w_b_q_3) +
-    parseInt(hand_moulding) +
-    parseInt(melting) +
-    parseInt(fettling);
-  var diff_shell_core = reqs_shell_core - shell_core;
-  var diff_cold_box = reqs_cold_box - cold_box;
-  var diff_arpa_900 = reqs_arpa_900 - arpa_900;
-  var diff_arpa_450 = reqs_arpa_450 - arpa_450;
-  var diff_w_b_q_3 = reqs_w_b_q_3 - w_b_q_3;
-  var diff_hand_moulding = reqs_hand_moulding - hand_moulding;
-  var diff_melting = reqs_melting - melting;
-  var diff_fettling = reqs_fettling - fettling;
-  if (isLoading) {
-    return <div className="App">{/* <Demo /> */}hii</div>;
-  }
+  // var requirements =
+  //   parseInt(reqs_shell_core) +
+  //   parseInt(reqs_cold_box) +
+  //   parseInt(reqs_arpa_900) +
+  //   parseInt(reqs_arpa_450) +
+  //   parseInt(reqs_w_b_q_3) +
+  //   parseInt(reqs_hand_moulding) +
+  //   parseInt(reqs_melting) +
+  //   parseInt(reqs_fettling);
+  // var availability =
+  //   parseInt(shell_core) +
+  //   parseInt(cold_box) +
+  //   parseInt(arpa_900) +
+  //   parseInt(arpa_450) +
+  //   parseInt(w_b_q_3) +
+  //   parseInt(hand_moulding) +
+  //   parseInt(melting) +
+  //   parseInt(fettling);
+  // var diff_shell_core = reqs_shell_core - shell_core;
+  // var diff_cold_box = reqs_cold_box - cold_box;
+  // var diff_arpa_900 = reqs_arpa_900 - arpa_900;
+  // var diff_arpa_450 = reqs_arpa_450 - arpa_450;
+  // var diff_w_b_q_3 = reqs_w_b_q_3 - w_b_q_3;
+  // var diff_hand_moulding = reqs_hand_moulding - hand_moulding;
+  // var diff_melting = reqs_melting - melting;
+  // var diff_fettling = reqs_fettling - fettling;
+  // if (isLoading) {
+  //   return <div className="App">{<Demo />}</div>;
+  // }
+
+  // const handleOpen = () => {
+  //   <Demo />;
+  // };
   return (
     <>
       <PageTitle title="Dashboard" />
-      <div>
+
+      {/* <Button
+        variant="contained"
+        size="medium"
+        color="primary"
+        sx={{ m: 4, p: 4 }}
+        // onClick={handleOpen}
+      >
+        ROOM 1
+      </Button>
+      <Button
+        // style={"m-"}
+        variant="contained"
+        size="medium"
+        color="primary"
+        sx={{ m: 4, p: 4 }}
+        // onClick={handleClickOpen}
+      >
+        ROOM 2
+      </Button> */}
+      <Demo />
+      <br></br>
+      <br></br>
+      {/* <div>
         {(() => {
           if (data === "hr") {
             return (
@@ -447,7 +475,7 @@ export default function Dashboard(props) {
       </div>
       <br></br>
       <br></br>
-      <br></br>
+      <br></br> */}
     </>
   );
 }
