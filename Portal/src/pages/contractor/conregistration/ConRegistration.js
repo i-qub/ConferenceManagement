@@ -6,11 +6,12 @@ import TextField from "@material-ui/core/TextField";
 // import Radio from "@material-ui/core/Radio";
 // import RadioGroup from "@material-ui/core/RadioGroup";
 // import FormLabel from "@material-ui/core/FormLabel";
-import { Button } from "@material-ui/core";
+import { Button, unstable_createMuiStrictModeTheme } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
+import * as moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -57,7 +58,29 @@ export default function ConRegistration(props) {
     );
     window.location.reload();
   };
-
+  let time = [
+    ["2022-11-17", "11:14", "12:16", "Conference_Hall_1"],
+    ["2022-11-25", "12:15", "12:16", "Conference_Hall_1"],
+    ["2022-11-22", "14:45", "14:48", "Conference_Hall_1"],
+    ["2022-11-17", "11:16", "12:18", "Conference_Hall_1"],
+  ];
+  function checkAvailability(userTime) {
+    time.map((i) => {
+      if (i[0] == userTime[0]) {
+        if (i[3] == userTime[3]) {
+          if (
+            moment(
+              (i[1], "hh:mm").isBefore(moment(userTime[1], "hh:mm")) &&
+                moment(i[2], "hh:mm").isAfter(moment(userTime[1], "hh:mm")),
+            ) |
+            (moment(i[1], "hh:mm").isAfter(moment(userTime[1], "hh:mm")) &&
+              moment(i[1], "hh:mm").isBefore(moment(userTime[2], "hh:mm")))
+          )
+            alert("Time not available in selected hall");
+        }
+      }
+    });
+  }
   return (
     <>
       <form onSubmit={newContractor}>
@@ -127,6 +150,12 @@ export default function ConRegistration(props) {
                 native
                 onChange={(event) => {
                   setConfHall(event.target.value);
+                  checkAvailability([
+                    meetdate,
+                    fromtime,
+                    totime,
+                    event.target.value,
+                  ]);
                 }}
                 style={{ width: "100%" }}
               >

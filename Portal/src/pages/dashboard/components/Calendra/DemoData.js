@@ -4,7 +4,7 @@ export const appointments = [
     startDate: new Date(2018, 5, 25, 9, 0),
     endDate: new Date(2018, 5, 25, 11, 30),
     id: 0,
-    location: "Conf",
+    location: "RoOM1",
   },
   {
     title: "Website Re-Design Plan",
