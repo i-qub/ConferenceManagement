@@ -46,7 +46,7 @@ export default function ContractorEdit(props) {
     setDOB(props.editData.meetdate);
     setFTime(props.editData.fromtime);
     setTTime(props.editData.totime);
-    setPriority(props.editData.priority);
+    // setPriority(props.editData.priority);
     setConfHall(props.editData.confhall);
     setTotalMembers(props.editData.totalmembers);
     setMeetingOrganizer(props.editData.meetingorganizer);
@@ -67,7 +67,7 @@ export default function ContractorEdit(props) {
         meetdate: meetdate,
         fromtime: fromtime,
         totime: totime,
-        priority: priority,
+        // priority: priority,
         confhall: confhall,
         totalmembers: totalmembers,
         meetingorganizer: meetingorganizer,
@@ -130,7 +130,7 @@ export default function ContractorEdit(props) {
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <TextField
               label="Priority"
               fullWidth
@@ -139,7 +139,7 @@ export default function ContractorEdit(props) {
                 setPriority(event.target.value);
               }}
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm={4}>
             <FormControl required className={classes.formControl}>
               <InputLabel

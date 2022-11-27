@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 // import Radio from "@material-ui/core/Radio";
 // import RadioGroup from "@material-ui/core/RadioGroup";
 // import FormLabel from "@material-ui/core/FormLabel";
-import { Button, unstable_createMuiStrictModeTheme } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
@@ -27,7 +27,7 @@ export default function ConRegistration(props) {
   const [meetdate, setDOB] = useState("");
   const [fromtime, setFTime] = useState("");
   const [totime, setTTime] = useState("");
-  const [priority, setPriority] = useState("");
+  // const [priority, setPriority] = useState("");
   const [confhall, setConfHall] = useState("");
   const [totalmembers, setTotalMembers] = useState("");
   const [meetingorganizer, setMeetingOrganizer] = useState("");
@@ -45,7 +45,7 @@ export default function ConRegistration(props) {
         meetdate: meetdate,
         fromtime: fromtime,
         totime: totime,
-        priority: priority,
+        // priority: priority,
         confhall: confhall,
         totalmembers: totalmembers,
         meetingorganizer: meetingorganizer,
@@ -66,8 +66,8 @@ export default function ConRegistration(props) {
   ];
   function checkAvailability(userTime) {
     time.map((i) => {
-      if (i[0] == userTime[0]) {
-        if (i[3] == userTime[3]) {
+      if (i[0] === userTime[0]) {
+        if (i[3] === userTime[3]) {
           if (
             moment(
               (i[1], "hh:mm").isBefore(moment(userTime[1], "hh:mm")) &&
@@ -128,7 +128,7 @@ export default function ConRegistration(props) {
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <TextField
               label="Priority"
               fullWidth
@@ -136,7 +136,7 @@ export default function ConRegistration(props) {
                 setPriority(event.target.value);
               }}
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm={4}>
             <FormControl required className={classes.formControl}>
               <InputLabel

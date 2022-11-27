@@ -4,7 +4,9 @@ import Paper from "@mui/material/Paper";
 // import TextField from "@mui/material/TextField";
 // import MenuItem from "@mui/material/MenuItem";
 import { ViewState } from "@devexpress/dx-react-scheduler";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
+// import axios from "axios";
+
 import {
   Scheduler,
   WeekView,
@@ -56,6 +58,12 @@ import { appointments } from "./DemoData";
 //     </TextField>
 //   </StyledDiv>
 // );
+// let globalData = {};
+// const displayCalendar = async (id) => {
+//   axios.get("http://localhost:3000/con/getDailyData").then((response) => {
+//     console.log(response.data);
+//   });
+// };
 
 export default class Demo extends React.PureComponent {
   constructor(props) {
@@ -67,13 +75,19 @@ export default class Demo extends React.PureComponent {
       locale: "en-US",
     };
 
-    this.changeLocale = (event) =>
-      this.setState({ locale: event.target.value });
+    //   this.changeLocale = (event) =>
+    //     this.setState({ locale: event.target.value });
   }
-
+  // componentDidMount() {
+  //   fetch("http://localhost:3000/con/getDailyData")
+  //     .then((resp) => {
+  //       resp.json();
+  //     })
+  //     .then((resp) => this.setState({ posts: resp }));
+  // }
   render() {
     const { data, currentDate, locale } = this.state;
-
+    console.log(data);
     return (
       <div>
         {/* <LocaleSwitcher

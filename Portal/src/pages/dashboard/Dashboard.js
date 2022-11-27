@@ -1,5 +1,6 @@
-import { Button, Box } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+// import { Button, Box } from "@material-ui/core";
+
+import React from "react";
 // import axios from "axios";
 // import Chart from "react-google-charts";
 // import { getUser } from "../../components/Utils/Common";
@@ -9,11 +10,12 @@ import React, { useState, useEffect } from "react";
 // import useStyles from "./styles";
 
 //components
-import Widget from "../..//components/Widget";
+// import Widget from "../..//components/Widget";
 import PageTitle from "../../components/PageTitle";
 // import { Typography } from "../../components/Wrappers";
 // import Dot from "../../components/Sidebar/components/Dot";
 import Demo from "./components/Calendra/Demo";
+import Demo1 from "./components/Calendra/Demo1";
 
 export default function Dashboard() {
   // var classes = useStyles();
@@ -130,7 +132,7 @@ export default function Dashboard() {
       >
         ROOM 2
       </Button> */}
-      <Demo />
+      <Demo1 />
       <br></br>
       <br></br>
       {/* <div>
