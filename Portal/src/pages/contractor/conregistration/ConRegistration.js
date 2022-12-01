@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
@@ -12,7 +12,7 @@ import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
 import * as moment from "moment";
-
+import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     width: "100%",
@@ -35,6 +35,8 @@ export default function ConRegistration(props) {
   const [mobile1, setMobile1] = useState("");
   const [mobile2, setMobile2] = useState("");
   const [dept, setDepartment] = useState("");
+  const [apiData, setApiData] = useState([]);
+  // const [submitState, setSubmitState] = useState(false);
 
   const newContractor = (event) => {
     event.preventDefault();
@@ -45,7 +47,6 @@ export default function ConRegistration(props) {
         meetdate: meetdate,
         fromtime: fromtime,
         totime: totime,
-        // priority: priority,
         confhall: confhall,
         totalmembers: totalmembers,
         meetingorganizer: meetingorganizer,
@@ -58,29 +59,39 @@ export default function ConRegistration(props) {
     );
     window.location.reload();
   };
-  let time = [
-    ["2022-11-17", "11:14", "12:16", "Conference_Hall_1"],
-    ["2022-11-25", "12:15", "12:16", "Conference_Hall_1"],
-    ["2022-11-22", "14:45", "14:48", "Conference_Hall_1"],
-    ["2022-11-17", "11:16", "12:18", "Conference_Hall_1"],
-  ];
+  useEffect(() => {
+    axios.get("http://localhost:3000/con/getDailyData").then((response) => {
+      setApiData(response.data.data);
+    });
+  }, []);
+  let time = [];
+  apiData.map((data) => {
+    time.push([data.meetdate, data.fromtime, data.totime, data.confhall]);
+  });
+  // console.log(time);
+
   function checkAvailability(userTime) {
+    console.log(userTime);
     time.map((i) => {
       if (i[0] === userTime[0]) {
         if (i[3] === userTime[3]) {
           if (
-            moment(
-              (i[1], "hh:mm").isBefore(moment(userTime[1], "hh:mm")) &&
-                moment(i[2], "hh:mm").isAfter(moment(userTime[1], "hh:mm")),
-            ) |
+            (moment(i[1], "hh:mm").isBefore(moment(userTime[1], "hh:mm")) &&
+              moment(i[2], "hh:mm").isAfter(moment(userTime[1], "hh:mm"))) |
             (moment(i[1], "hh:mm").isAfter(moment(userTime[1], "hh:mm")) &&
               moment(i[1], "hh:mm").isBefore(moment(userTime[2], "hh:mm")))
-          )
+          ) {
             alert("Time not available in selected hall");
+            // setSubmitState(true);
+            setConfHall("");
+            setFTime("");
+            setTTime("");
+          }
         }
       }
     });
   }
+  // console.log(submitState);
   return (
     <>
       <form onSubmit={newContractor}>
@@ -112,6 +123,7 @@ export default function ConRegistration(props) {
             <TextField
               type="time"
               label="From Time"
+              value={fromtime}
               fullWidth
               onChange={(event) => {
                 setFTime(event.target.value);
@@ -122,21 +134,13 @@ export default function ConRegistration(props) {
             <TextField
               type="time"
               label="To Time"
+              value={totime}
               fullWidth
               onChange={(event) => {
                 setTTime(event.target.value);
               }}
             />
           </Grid>
-          {/* <Grid item xs={12} sm={4}>
-            <TextField
-              label="Priority"
-              fullWidth
-              onChange={(event) => {
-                setPriority(event.target.value);
-              }}
-            />
-          </Grid> */}
           <Grid item xs={12} sm={4}>
             <FormControl required className={classes.formControl}>
               <InputLabel
@@ -157,6 +161,7 @@ export default function ConRegistration(props) {
                     event.target.value,
                   ]);
                 }}
+                value={confhall}
                 style={{ width: "100%" }}
               >
                 <option aria-label="None" value="" />
@@ -253,6 +258,7 @@ export default function ConRegistration(props) {
                 style={{
                   fontSize: "18px",
                 }}
+                // disabled={submitState}
                 color="primary"
                 variant="contained"
               >

@@ -1,8 +1,8 @@
 export const appointments = [
   {
     title: "Website Re-Design Plan",
-    startDate: new Date(2018, 5, 25, 9, 0),
-    endDate: new Date(2018, 5, 25, 11, 30),
+    startDate: new Date(2022, 5, 25, 9, 0),
+    endDate: new Date(2022, 5, 25, 11, 30),
     id: 0,
     location: "RoOM1  ",
   },
@@ -76,13 +76,7 @@ export const appointments = [
     id: 9,
     location: "L1",
   },
-  // {
-  //   title: "Prepare 2015 Marketing Plan",
-  //   startDate: new Date(2018, 5, 28, 11, 0),
-  //   endDate: new Date(2018, 5, 28, 13, 30),
-  //   id: 10,
-  //   location: "Confre",
-  // },
+
   {
     title: "Brochure Design Review",
     startDate: new Date(2018, 5, 28, 14, 0),

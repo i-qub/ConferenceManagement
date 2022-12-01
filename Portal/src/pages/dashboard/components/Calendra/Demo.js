@@ -71,7 +71,7 @@ export default class Demo extends React.PureComponent {
 
     this.state = {
       data: appointments,
-      currentDate: "2018-06-27",
+      currentDate: "2022-06-27",
       locale: "en-US",
     };
 
@@ -87,7 +87,7 @@ export default class Demo extends React.PureComponent {
   // }
   render() {
     const { data, currentDate, locale } = this.state;
-    console.log(data);
+    // console.log(data);
     return (
       <div>
         {/* <LocaleSwitcher
