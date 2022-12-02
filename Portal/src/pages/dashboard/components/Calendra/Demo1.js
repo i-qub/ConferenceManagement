@@ -2,7 +2,6 @@ import * as React from "react";
 import Paper from "@mui/material/Paper";
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import axios from "axios";
-import { Button, Box } from "@material-ui/core";
 
 import {
   Scheduler,
@@ -14,14 +13,13 @@ import {
 
 import { useState } from "react";
 import { useEffect } from "react";
+import { Button, Box } from "@mui/material";
 
 function Demo1() {
-  const currentDate = new Date();
-  const locale = "en-US";
   const [apiData, setApiData] = useState([]);
-  const [displayConfHall, setDisplayConfHall] = useState([]);
-  // const [currentDate, setCurrentDate] = useState("2022-11-29");
-  // const [locale, setLocale] = useState("en-US");
+  const [currentDate, setCurrentDate] = useState("2022-11-29");
+  const [locale, setLocale] = useState("en-US");
+  const [dispConfHall, setDispConfHall] = useState("Conference Hall");
   useEffect(() => {
     axios.get("http://localhost:3000/con/getDailyData").then((response) => {
       setApiData(response.data.data);
@@ -53,37 +51,39 @@ function Demo1() {
     data1.location = data.confhall;
     schedulerDataNew.push(data1);
   });
+  var newArray = schedulerDataNew.filter(function (el) {
+    return el.location === dispConfHall;
+  });
+
   return (
     <div>
-      <h1>Conference Hall</h1>
       <Box sx={{ "& button": { m: 1 } }}>
         <div>
           <Button
-            style={{ marginRight: "30px" }}
-            variant="contained"
+            type="submit"
+            variant={
+              dispConfHall == "Conference Hall" ? "contained" : "outlined"
+            }
+            onClick={() => {
+              setDispConfHall("Conference Hall");
+            }}
             color="primary"
-            onClick={setDisplayConfHall("Conference_Hall_1")}
           >
             Conference Hall
           </Button>
           <Button
-            variant="contained"
+            variant={dispConfHall == "Learning Hall" ? "contained" : "outlined"}
+            onClick={() => {
+              setDispConfHall("Learning Hall");
+            }}
             color="primary"
-            onClick={setDisplayConfHall("Conference_Hall_2")}
           >
             Learning Hall
           </Button>
         </div>
       </Box>
-      <br />
       <Paper>
-        <Scheduler
-          data={schedulerDataNew.filter(function (el) {
-            return el.location === displayConfHall;
-          })}
-          locale={locale}
-          height={660}
-        >
+        <Scheduler data={newArray} locale={locale} height={660}>
           <ViewState defaultCurrentDate={currentDate} />
 
           <WeekView startDayHour={9} endDayHour={20} />

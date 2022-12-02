@@ -76,11 +76,22 @@ export default function ConRegistration(props) {
       if (i[0] === userTime[0]) {
         if (i[3] === userTime[3]) {
           if (
-            (moment(i[1], "hh:mm").isBefore(moment(userTime[1], "hh:mm")) &&
-              moment(i[2], "hh:mm").isAfter(moment(userTime[1], "hh:mm"))) |
-            (moment(i[1], "hh:mm").isAfter(moment(userTime[1], "hh:mm")) &&
-              moment(i[1], "hh:mm").isBefore(moment(userTime[2], "hh:mm")))
+            (moment(i[1], "hh:mm").isSameOrBefore(
+              moment(userTime[1], "hh:mm"),
+            ) && moment(i[2], "hh:mm").isAfter(moment(userTime[1], "hh:mm"))) |
+            (moment(i[1], "hh:mm").isSameOrAfter(
+              moment(userTime[1], "hh:mm"),
+            ) && moment(i[1], "hh:mm").isBefore(moment(userTime[2], "hh:mm")))
           ) {
+            // (moment(i[1], "hh:mm").isSame(moment(userTime[1], "hh:mm")) &&
+            //   moment(i[1], "hh:mm").isBefore(moment(userTime[2], "hh:mm"))) |
+            // (moment(i[1], "hh:mm").isAfter(moment(userTime[1], "hh:mm")) &&
+            //   moment(i[1], "hh:mm").isSame(moment(userTime[2], "hh:mm"))) |
+            // (moment(i[1], "hh:mm").isSame(moment(userTime[1], "hh:mm")) &&
+            //   moment(i[2], "hh:mm").isAfter(moment(userTime[1], "hh:mm"))) |
+            // (moment(i[1], "hh:mm").isBefore(moment(userTime[1], "hh:mm")) &&
+            //   moment(i[2], "hh:mm").isSame(moment(userTime[1], "hh:mm")))
+            // )
             alert("Time not available in selected hall");
             // setSubmitState(true);
             setConfHall("");
@@ -165,8 +176,8 @@ export default function ConRegistration(props) {
                 style={{ width: "100%" }}
               >
                 <option aria-label="None" value="" />
-                <option value="Conference_Hall_1">Conference Hall 1</option>
-                <option value="Conference_Hall_2">Conference Hall 2</option>
+                <option value="Conference Hall">Conference Hall</option>
+                <option value="Learning Hall">Learning Hall</option>
               </Select>
             </FormControl>
           </Grid>

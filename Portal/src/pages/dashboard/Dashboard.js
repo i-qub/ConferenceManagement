@@ -8,8 +8,6 @@ export default function Dashboard() {
   return (
     <>
       <PageTitle title="Dashboard" />
-      {/* <buttton>Conference Hall</buttton>
-      <buttton>Learning Hall</buttton> */}
       <Demo1 />
       <br></br>
     </>

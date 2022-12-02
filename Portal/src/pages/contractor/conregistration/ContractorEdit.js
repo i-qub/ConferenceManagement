@@ -29,7 +29,7 @@ export default function ContractorEdit(props) {
   const [meetdate, setDOB] = useState("");
   const [fromtime, setFTime] = useState("");
   const [totime, setTTime] = useState("");
-  const [priority, setPriority] = useState("");
+  // const [priority, setPriority] = useState("");
   const [confhall, setConfHall] = useState("");
   const [totalmembers, setTotalMembers] = useState("");
   const [meetingorganizer, setMeetingOrganizer] = useState("");
@@ -112,6 +112,7 @@ export default function ContractorEdit(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="time"
               label="From Time"
               fullWidth
               value={fromtime}
@@ -122,6 +123,7 @@ export default function ContractorEdit(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+              type="time"
               label="To Time"
               fullWidth
               value={totime}
@@ -130,16 +132,7 @@ export default function ContractorEdit(props) {
               }}
             />
           </Grid>
-          {/* <Grid item xs={12} sm={4}>
-            <TextField
-              label="Priority"
-              fullWidth
-              value={priority}
-              onChange={(event) => {
-                setPriority(event.target.value);
-              }}
-            />
-          </Grid> */}
+
           <Grid item xs={12} sm={4}>
             <FormControl required className={classes.formControl}>
               <InputLabel
@@ -158,8 +151,8 @@ export default function ContractorEdit(props) {
                 style={{ width: "100%" }}
               >
                 <option aria-label="None" value="" />
-                <option value="Conference_Hall_1">Conference Hall 1</option>
-                <option value="Conference_Hall_2">Conference Hall 2</option>
+                <option value="Conference Hall">Conference Hall</option>
+                <option value="Learning Hall">Learning Hall</option>
               </Select>
             </FormControl>
           </Grid>
