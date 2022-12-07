@@ -13,6 +13,7 @@ import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
 import * as moment from "moment";
 import axios from "axios";
+// import { setUserSession } from "../../../components/Utils/Common";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     width: "100%",
@@ -35,6 +36,7 @@ export default function ConRegistration(props) {
   const [mobile1, setMobile1] = useState("");
   const [mobile2, setMobile2] = useState("");
   const [dept, setDepartment] = useState("");
+
   const [apiData, setApiData] = useState([]);
   // const [submitState, setSubmitState] = useState(false);
 
@@ -54,6 +56,7 @@ export default function ConRegistration(props) {
         mobile1: mobile1,
         mobile2: mobile2,
         dept: dept,
+        token: JSON.parse(sessionStorage.user)[0].token,
       },
       onSubmitClose(),
     );

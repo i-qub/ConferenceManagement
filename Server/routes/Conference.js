@@ -3,13 +3,9 @@ const router = express.Router();
 const dateFormat = require("dateformat");
 const users = require("../models/UsersModel");
 const conference = require("../models/ConferencesModel");
-// const deactivedated = require('../models/DeactivatedModel')
 const moment = require("moment");
 router.post("/addContractor", async (req, res) => {
-  // let MDate = req.body.meetdate.trim();
-  // let FDate = req.body.fromtime.trim();
-  // let TDate = req.body.totime.trim();
-  // const body = req.body;
+  console.log("08", req.body);
   var getData = await conference.findOne({
     ...req.body,
   });
@@ -62,7 +58,9 @@ router.post("/update", async (req, res, next) => {
         email: req.body.email,
         mobile1: req.body.mobile1,
         mobile2: req.body.mobile2,
+        token: req.body.token,
         dept: req.body.dept,
+        token: req.body.token,
       },
     }
   );

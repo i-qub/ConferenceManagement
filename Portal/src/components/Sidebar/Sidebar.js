@@ -34,7 +34,7 @@ import {
 
 const hrMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
-  { id: 1, label: "Contractor", link: "/contractor", icon: <PortraitIcon /> },
+  { id: 1, label: "Add Booking", link: "/contractor", icon: <PortraitIcon /> },
   // { id: 2, label: "Employees", link: "/employee", icon: <PersonIcon />, },
   // { id: 3, label: "Manpower", link: "/manpower", icon: <GroupIcon />, },
   // { id: 4, label: "Leave Management", link: "/leave", icon: <EventBusyIcon />, },

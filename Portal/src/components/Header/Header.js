@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import { getUser, removeUserSession } from '../Utils/Common';
+import { getUser, removeUserSession } from "../Utils/Common";
 
 import logo from "./logo.png";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Menu,
-  MenuItem,
-} from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
 import {
   ExitToAppOutlined as ExitToAppOutlinedIcon,
   Menu as MenuIcon,
@@ -33,9 +27,24 @@ import {
 
 const notifications = [
   { id: 0, color: "warning", message: "Check out this awesome ticket" },
-  { id: 1, color: "success", type: "info", message: "What is the best way to get ...", },
-  { id: 2, color: "secondary", type: "notification", message: "This is just a simple notification", },
-  { id: 3, color: "primary", type: "e-commerce", message: "12 new orders has arrived today", },
+  {
+    id: 1,
+    color: "success",
+    type: "info",
+    message: "What is the best way to get ...",
+  },
+  {
+    id: 2,
+    color: "secondary",
+    type: "notification",
+    message: "This is just a simple notification",
+  },
+  {
+    id: 3,
+    color: "primary",
+    type: "e-commerce",
+    message: "12 new orders has arrived today",
+  },
 ];
 
 export default function Header(props) {
@@ -53,17 +62,21 @@ export default function Header(props) {
   const user = getUser();
 
   const Profile = () => {
-    props.history.push('/userprofile');
-  }
+    props.history.push("/userprofile");
+  };
 
   // handle click event of logout button
   const logout = () => {
     removeUserSession();
-    props.history.push('/login');
-  }
+    props.history.push("/login");
+  };
 
   return (
-    <AppBar position="fixed" className={classes.appBar} style={{ backgroundColor: "#536DFE" }} >
+    <AppBar
+      position="fixed"
+      className={classes.appBar}
+      style={{ backgroundColor: "#536DFE" }}
+    >
       <Toolbar className={classes.toolbar}>
         <IconButton
           color="inherit"
@@ -93,17 +106,22 @@ export default function Header(props) {
             />
           )}
         </IconButton>
-        <img src={logo} alt="logo" className={classes.logotypeImage} style={{ height: "40px" }} />
+        <img
+          src={logo}
+          alt="logo"
+          className={classes.logotypeImage}
+          style={{ height: "40px" }}
+        />
 
         <Typography variant="h6" weight="medium" className={classes.logotype}>
-          Menon & Menon Ltd.
+          Menon and Menon Ltd.
         </Typography>
         <div className={classes.grow} />
         <IconButton
           color="inherit"
           aria-haspopup="true"
           aria-controls="mail-menu"
-          onClick={e => {
+          onClick={(e) => {
             setNotificationsMenu(e.currentTarget);
             setIsNotificationsUnread(false);
           }}
@@ -121,7 +139,7 @@ export default function Header(props) {
           color="inherit"
           className={classes.headerMenuButton}
           aria-controls="profile-menu"
-          onClick={e => setProfileMenu(e.currentTarget)}
+          onClick={(e) => setProfileMenu(e.currentTarget)}
         >
           <AccountIcon classes={{ root: classes.headerIcon }} />
         </IconButton>
@@ -133,7 +151,7 @@ export default function Header(props) {
           className={classes.headerMenu}
           disableAutoFocusItem
         >
-          {notifications.map(notification => (
+          {notifications.map((notification) => (
             <MenuItem
               key={notification.id}
               onClick={() => setNotificationsMenu(null)}
@@ -179,7 +197,8 @@ export default function Header(props) {
             color="primary"
             onClick={logout}
           >
-            <ExitToAppOutlinedIcon className={classes.profileMenuIcon} /> Sign Out
+            <ExitToAppOutlinedIcon className={classes.profileMenuIcon} /> Sign
+            Out
           </MenuItem>
         </Menu>
       </Toolbar>

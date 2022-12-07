@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  // Box,
-  // Dialog,
-  // DialogActions,
-  // DialogContent,
-  // DialogTitle,
-  // TextField,
-} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import tableIcons from "./Icons";
 import ConRegiPopup from "../../components/Popup/ConRegiPopup";
 import ConRegistration from "./conregistration/ConRegistration";
@@ -15,14 +7,9 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import MaterialTable from "material-table";
 import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
-// import ViewEmployees from "./ViewEmployees";
-// import ViewEmployeesPopup from "../../components/Popup/ViewEmployeesPopup";
 import EditEmployeesPopup from "../../components/Popup/EditEmployeesPopup";
-// import ContractorEdit from "./conregistration/ContractorEdit";
-// import { useHistory } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import ContractorEdit from "./conregistration/ContractorEdit";
+// import { setUserSession } from "../../components/Utils/Common";
 
 const theme = createTheme({
   overrides: {
@@ -43,26 +30,15 @@ function Contractor() {
   const [openEmployeesPopup, setOpenEmployeesPopup] = useState(false);
   const [editData, setEditData] = useState([]);
 
-  const [contractor, setContractor] = useState("");
-  // const [token, setToken] = useState("");
-  // let history = useHistory();
-  // let navigate = useNavigate();
-  // const [open, setOpen] = React.useState(false);
+  const [contractor] = useState("");
 
   const handleOpenForEdit = async (obj) => {
-    // console.log("++++",obj);
     setEditData(obj);
     setOpenEmployeesPopup(true);
-    console.log("56", obj);
   };
-
-  // const handleClickClose1 = () => {
-  //   setOpenEmployeesPopup(false);
+  // const handleOpen = () => {
+  //   setOpenEmployeesPopup(true);
   // };
-
-  const handleOpen = () => {
-    setOpenEmployeesPopup(true);
-  };
 
   const handleClickClose = () => {
     setOpenEmployeesPopup(false);
@@ -117,28 +93,45 @@ function Contractor() {
           ]}
           fontSize="12px"
           data={view}
-          onRowClick={(event, rowData) => {
-            const contractor = rowData.contractor;
-            setContractor(contractor);
-            handleOpen(true);
-          }}
           actions={[
-            {
-              icon: tableIcons.Delete,
-              tooltip: "Delete User",
-              onClick: (event, rowData) => {
-                deleteUser(rowData._id);
-              },
+            (rowData) => {
+              return {
+                icon: tableIcons.Delete,
+                tooltip: "Delete Meeting",
+                disabled:
+                  rowData.token !== JSON.parse(sessionStorage.user)[0].token,
+                onClick: (event, rowData) => {
+                  deleteUser(rowData._id);
+                },
+              };
             },
-            {
-              icon: tableIcons.Edit,
-              tooltip: "Edit User",
-              onClick: (e, rowData) => {
-                handleOpenForEdit(rowData);
-                // <Link to="http://localhost:3000/con/update"></Link>; // editUser();
-              },
+            (rowData) => {
+              return {
+                icon: tableIcons.Edit,
+                tooltip: "Edit Meeting",
+                disabled:
+                  rowData.token !== JSON.parse(sessionStorage.user)[0].token,
+                onClick: (e, rowData) => {
+                  handleOpenForEdit(rowData);
+                },
+              };
             },
           ]}
+          // actions={[
+          //   {
+          //     icon: tableIcons.Delete,
+          //     tooltip: "Delete User",
+          //     disabled:
+
+          //   },
+          //   {
+          //     icon: tableIcons.Edit,
+          //     tooltip: "Edit User",
+          //     onClick: (e, rowData) => {
+          //       handleOpenForEdit(rowData);
+          //     },
+          //   },
+          // ]}
           options={{
             pageSize: 10,
             exportAllData: true,

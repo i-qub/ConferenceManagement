@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@aldabil/react-scheduler": "^2.5.13",
+    "jspdf-autotable": "^3.5.28",
     "moment": "^2.29.4",
     "react-moment": "^1.1.2"
   }

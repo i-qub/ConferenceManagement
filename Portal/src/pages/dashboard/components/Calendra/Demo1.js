@@ -14,11 +14,15 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import { Button, Box } from "@mui/material";
+// import { setUserSession } from "../../../../components/Utils/Common";
+// console.log(JSON.parse(sessionStorage.user)[0].token);
 
 function Demo1() {
+  const currentDate = new Date();
+  const locale = "en-US";
   const [apiData, setApiData] = useState([]);
-  const [currentDate, setCurrentDate] = useState("2022-11-29");
-  const [locale, setLocale] = useState("en-US");
+  // const [currentDate, setCurrentDate] = useState("2022-11-29");
+  // const [locale, setLocale] = useState("en-US");
   const [dispConfHall, setDispConfHall] = useState("Conference Hall");
   useEffect(() => {
     axios.get("http://localhost:3000/con/getDailyData").then((response) => {
@@ -62,7 +66,7 @@ function Demo1() {
           <Button
             type="submit"
             variant={
-              dispConfHall == "Conference Hall" ? "contained" : "outlined"
+              dispConfHall === "Conference Hall" ? "contained" : "outlined"
             }
             onClick={() => {
               setDispConfHall("Conference Hall");
@@ -72,7 +76,9 @@ function Demo1() {
             Conference Hall
           </Button>
           <Button
-            variant={dispConfHall == "Learning Hall" ? "contained" : "outlined"}
+            variant={
+              dispConfHall === "Learning Hall" ? "contained" : "outlined"
+            }
             onClick={() => {
               setDispConfHall("Learning Hall");
             }}

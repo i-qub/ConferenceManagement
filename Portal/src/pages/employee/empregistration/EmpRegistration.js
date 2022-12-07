@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormLabel from '@material-ui/core/FormLabel';
+import React, { useState } from "react";
+import axios from "axios";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormLabel from "@material-ui/core/FormLabel";
 import { Button } from "@material-ui/core";
-import { getUser } from '../../../components/Utils/Common';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import { makeStyles } from '@material-ui/core/styles';
-import dateFormat from 'dateformat';
+import { getUser } from "../../../components/Utils/Common";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import FormControl from "@material-ui/core/FormControl";
+import { makeStyles } from "@material-ui/core/styles";
+import dateFormat from "dateformat";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    width: '100%',
-  }
+    width: "100%",
+  },
 }));
 
 export default function EmpRegistration(props) {
@@ -30,7 +30,7 @@ export default function EmpRegistration(props) {
   const [dob, setDOB] = useState("");
   const [dobplace, setDobPlace] = useState("");
   const [age, setAge] = useState("");
-  const [gender, setGender] = useState('male');
+  const [gender, setGender] = useState("male");
   const [maritalstatus, setMaritalStatus] = useState("married");
   const [address, setAddress] = useState("");
   const [paddress, setPaddress] = useState("");
@@ -65,49 +65,52 @@ export default function EmpRegistration(props) {
 
   const newEmployee = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3000/emp/addEmployee", {
-      token: token,
-      name: name,
-      dob: dob,
-      dobplace: dobplace,
-      age: age,
-      gender: gender,
-      maritalstatus: maritalstatus,
-      address: address,
-      paddress: paddress,
-      city: city,
-      state: state,
-      zipcode: zipcode,
-      country: country,
-      email: email,
-      mobile1: mobile1,
-      mobile2: mobile2,
-      contractor: contractor,
-      dept: dept,
-      joindate: joindate,
-      role: role,
-      type: type,
-      aadhar: aadhar,
-      pan: pan,
-      esi: esi,
-      pf: pf,
-      medicalcheckup: medicalcheckup,
-      education: education,
-      ctc: ctc
-    },
-      onSubmitClose())
+    axios.post(
+      "http://localhost:3000/emp/addEmployee",
+      {
+        token: token,
+        name: name,
+        dob: dob,
+        dobplace: dobplace,
+        age: age,
+        gender: gender,
+        maritalstatus: maritalstatus,
+        address: address,
+        paddress: paddress,
+        city: city,
+        state: state,
+        zipcode: zipcode,
+        country: country,
+        email: email,
+        mobile1: mobile1,
+        mobile2: mobile2,
+        contractor: contractor,
+        dept: dept,
+        joindate: joindate,
+        role: role,
+        type: type,
+        aadhar: aadhar,
+        pan: pan,
+        esi: esi,
+        pf: pf,
+        medicalcheckup: medicalcheckup,
+        education: education,
+        ctc: ctc,
+      },
+      onSubmitClose(),
+    );
   };
 
-  let newDate = new Date()
+  let newDate = new Date();
   // let day = newDate.getDate();
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear() - 18;
 
   const eighteenYearsAgo = `${year}-${month}`;
-  var CurrentDate = dateFormat(dob, "yyyy-mm");;
-  if (dob !== '') {
+  var CurrentDate = dateFormat(dob, "yyyy-mm");
+  if (dob !== "") {
     if (CurrentDate >= eighteenYearsAgo) {
-      alert('Under Age...')
+      alert("Under Age...");
       window.location.reload();
     }
   }
@@ -120,7 +123,9 @@ export default function EmpRegistration(props) {
               required
               label="Token No."
               fullWidth
-              onChange={(event) => { setToken(event.target.value); }}
+              onChange={(event) => {
+                setToken(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -128,7 +133,9 @@ export default function EmpRegistration(props) {
               required
               label="Full Name"
               fullWidth
-              onChange={(event) => { setName(event.target.value); }}
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -140,14 +147,18 @@ export default function EmpRegistration(props) {
               InputLabelProps={{
                 shrink: true,
               }}
-              onChange={(event) => { setDOB(event.target.value); }}
+              onChange={(event) => {
+                setDOB(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Place of Birth"
               fullWidth
-              onChange={(event) => { setDobPlace(event.target.value); }}
+              onChange={(event) => {
+                setDobPlace(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -155,29 +166,89 @@ export default function EmpRegistration(props) {
               required
               label="Age"
               fullWidth
-              onChange={(event) => { setAge(event.target.value); }}
+              onChange={(event) => {
+                setAge(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
-            <FormLabel component="legend" required>Gender</FormLabel>
-            <RadioGroup row aria-label="gender" name="gender" defaultValue="male" onChange={(event) => { setGender(event.target.value) }} >
-              <FormControlLabel value="male" control={<Radio color="primary" />} label="Male" />
-              <FormControlLabel value="female" control={<Radio color="primary" />} label="Female" />
+            <FormLabel component="legend" required>
+              Gender
+            </FormLabel>
+            <RadioGroup
+              row
+              aria-label="gender"
+              name="gender"
+              defaultValue="male"
+              onChange={(event) => {
+                setGender(event.target.value);
+              }}
+            >
+              <FormControlLabel
+                value="male"
+                control={<Radio color="primary" />}
+                label="Male"
+              />
+              <FormControlLabel
+                value="female"
+                control={<Radio color="primary" />}
+                label="Female"
+              />
             </RadioGroup>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <FormLabel component="legend" required>Marital Status</FormLabel>
-            <RadioGroup row aria-label="mStatus" name="mStatus" defaultValue="married" onChange={(event) => { setMaritalStatus(event.target.value) }}>
-              <FormControlLabel value="married" control={<Radio color="primary" />} label="Married" />
-              <FormControlLabel value="unmarried" control={<Radio color="primary" />} label="Unmarried" />
-              <FormControlLabel value="other" control={<Radio color="primary" />} label="Other" />
+            <FormLabel component="legend" required>
+              Marital Status
+            </FormLabel>
+            <RadioGroup
+              row
+              aria-label="mStatus"
+              name="mStatus"
+              defaultValue="married"
+              onChange={(event) => {
+                setMaritalStatus(event.target.value);
+              }}
+            >
+              <FormControlLabel
+                value="married"
+                control={<Radio color="primary" />}
+                label="Married"
+              />
+              <FormControlLabel
+                value="unmarried"
+                control={<Radio color="primary" />}
+                label="Unmarried"
+              />
+              <FormControlLabel
+                value="other"
+                control={<Radio color="primary" />}
+                label="Other"
+              />
             </RadioGroup>
           </Grid>
           <Grid item xs={12} sm={3}>
-            <FormLabel component="legend" required>Medical Checkup</FormLabel>
-            <RadioGroup row aria-label="mCheckup" name="mCheckup" defaultValue="No" onChange={(event) => { setMedicalCheckup(event.target.value) }}>
-              <FormControlLabel value="Yes" control={<Radio color="primary" />} label="Yes" />
-              <FormControlLabel value="No" control={<Radio color="primary" />} label="No" />
+            <FormLabel component="legend" required>
+              Medical Checkup
+            </FormLabel>
+            <RadioGroup
+              row
+              aria-label="mCheckup"
+              name="mCheckup"
+              defaultValue="No"
+              onChange={(event) => {
+                setMedicalCheckup(event.target.value);
+              }}
+            >
+              <FormControlLabel
+                value="Yes"
+                control={<Radio color="primary" />}
+                label="Yes"
+              />
+              <FormControlLabel
+                value="No"
+                control={<Radio color="primary" />}
+                label="No"
+              />
             </RadioGroup>
           </Grid>
           <Grid item xs={12}>
@@ -185,14 +256,18 @@ export default function EmpRegistration(props) {
               // required
               label="Present Address"
               fullWidth
-              onChange={(event) => { setAddress(event.target.value); }}
+              onChange={(event) => {
+                setAddress(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               label="Permanent Address"
               fullWidth
-              onChange={(event) => { setPaddress(event.target.value); }}
+              onChange={(event) => {
+                setPaddress(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -200,7 +275,9 @@ export default function EmpRegistration(props) {
               // required
               label="City"
               fullWidth
-              onChange={(event) => { setCity(event.target.value); }}
+              onChange={(event) => {
+                setCity(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -208,7 +285,9 @@ export default function EmpRegistration(props) {
               name="state"
               label="State"
               fullWidth
-              onChange={(event) => { setState(event.target.value); }}
+              onChange={(event) => {
+                setState(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -216,7 +295,9 @@ export default function EmpRegistration(props) {
               // required
               label="Zip/Postal code"
               fullWidth
-              onChange={(event) => { setZipCode(event.target.value); }}
+              onChange={(event) => {
+                setZipCode(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -225,14 +306,18 @@ export default function EmpRegistration(props) {
               label="Country"
               fullWidth
               value={country}
-              onChange={(event) => { setCountry(event.target.value); }}
+              onChange={(event) => {
+                setCountry(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               label="Email"
               fullWidth
-              onChange={(event) => { setEmail(event.target.value); }}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -241,7 +326,9 @@ export default function EmpRegistration(props) {
               label="Mobile No."
               fullWidth
               inputProps={{ maxLength: 10 }}
-              onChange={(event) => { setMobile1(event.target.value); }}
+              onChange={(event) => {
+                setMobile1(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -249,7 +336,9 @@ export default function EmpRegistration(props) {
               label="Alternate No."
               fullWidth
               inputProps={{ maxLength: 10 }}
-              onChange={(event) => { setMobile2(event.target.value); }}
+              onChange={(event) => {
+                setMobile2(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -258,7 +347,9 @@ export default function EmpRegistration(props) {
               label="Education"
               type="text"
               fullWidth
-              onChange={(event) => { setEducation(event.target.value); }}
+              onChange={(event) => {
+                setEducation(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -266,7 +357,9 @@ export default function EmpRegistration(props) {
               // required
               label="Aadhar No."
               fullWidth
-              onChange={(event) => { setAadhar(event.target.value); }}
+              onChange={(event) => {
+                setAadhar(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -274,7 +367,9 @@ export default function EmpRegistration(props) {
               // required
               label="PAN No."
               fullWidth
-              onChange={(event) => { setPan(event.target.value); }}
+              onChange={(event) => {
+                setPan(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -282,7 +377,9 @@ export default function EmpRegistration(props) {
               // required
               label="ESI No."
               fullWidth
-              onChange={(event) => { setESI(event.target.value); }}
+              onChange={(event) => {
+                setESI(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -290,7 +387,9 @@ export default function EmpRegistration(props) {
               // required
               label="PF No."
               fullWidth
-              onChange={(event) => { setPF(event.target.value); }}
+              onChange={(event) => {
+                setPF(event.target.value);
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -302,18 +401,28 @@ export default function EmpRegistration(props) {
                 shrink: true,
               }}
               fullWidth
-              onChange={(event) => { setJoinDate(event.target.value); }}
+              onChange={(event) => {
+                setJoinDate(event.target.value);
+              }}
             />
           </Grid>
-          {user[0].role === 'hr' ? (
+          {user[0].role === "hr" ? (
             <>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Type</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Type
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setType(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setType(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="HR">HR</option>
@@ -327,11 +436,19 @@ export default function EmpRegistration(props) {
               </Grid>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Department</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Department
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setDepartment(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setDepartment(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="HR">HR</option>
@@ -348,16 +465,26 @@ export default function EmpRegistration(props) {
                   label="CTC"
                   type="text"
                   fullWidth
-                  onChange={(event) => { setCTC(event.target.value); }}
+                  onChange={(event) => {
+                    setCTC(event.target.value);
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Contractor</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Contractor
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setContractor(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setContractor(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="Permanent">Permanent</option>
@@ -376,11 +503,19 @@ export default function EmpRegistration(props) {
               </Grid>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Role</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Role
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setRole(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setRole(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="hr">HR</option>
@@ -394,11 +529,19 @@ export default function EmpRegistration(props) {
             <>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Type</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Type
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setType(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setType(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="Permanent">Permanent</option>
@@ -410,11 +553,19 @@ export default function EmpRegistration(props) {
               </Grid>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Department</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Department
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setDepartment(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setDepartment(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="Core Shop">Core Shop</option>
@@ -426,24 +577,42 @@ export default function EmpRegistration(props) {
               </Grid>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Contractor</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Contractor
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setContractor(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setContractor(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
-                    <option value={user[0].contractor}>{user[0].contractor}</option>
+                    <option value={user[0].contractor}>
+                      {user[0].contractor}
+                    </option>
                   </Select>
                 </FormControl>
               </Grid>
               <Grid item xs={12} sm={4}>
                 <FormControl required className={classes.formControl}>
-                  <InputLabel htmlFor="age-native-required" required className={classes.formControl}>Role</InputLabel>
+                  <InputLabel
+                    htmlFor="age-native-required"
+                    required
+                    className={classes.formControl}
+                  >
+                    Role
+                  </InputLabel>
                   <Select
                     native
-                    onChange={(event) => { setRole(event.target.value); }}
-                    style={{ width: '100%' }}
+                    onChange={(event) => {
+                      setRole(event.target.value);
+                    }}
+                    style={{ width: "100%" }}
                   >
                     <option aria-label="None" value="" />
                     <option value="employee">Employee</option>
@@ -451,8 +620,7 @@ export default function EmpRegistration(props) {
                 </FormControl>
               </Grid>
             </>
-          )
-          }
+          )}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <Button
