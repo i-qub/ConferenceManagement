@@ -5,7 +5,6 @@ const users = require("../models/UsersModel");
 const conference = require("../models/ConferencesModel");
 const moment = require("moment");
 router.post("/addContractor", async (req, res) => {
-  console.log("08", req.body);
   var getData = await conference.findOne({
     ...req.body,
   });

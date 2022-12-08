@@ -16,7 +16,10 @@ router.use(function (req, res, next) {
   token = token.replace("Bearer ", "");
   jwt.verify(token, process.env.JWT_SECRET, function (err, user) {
     if (err) {
-      return res.status(401).json({ error: true, message: "Invalid user." });
+      return res.status(401).json({
+        error: true,
+        message: "Invalid user."
+      });
     } else {
       req.user = user; //set the user to req so other routes can use it
       next();
@@ -29,7 +32,10 @@ router.get("/", (req, res) => {
   if (!req.user)
     return res
       .status(401)
-      .json({ success: false, message: "Invalid user to access it." });
+      .json({
+        success: false,
+        message: "Invalid user to access it."
+      });
   res.send("Welcome to Menon & Menon..! - " + req.user.name);
 });
 
@@ -41,7 +47,10 @@ router.post("/login", async function (req, res) {
   if (!user || !pwd) {
     return res
       .status(400)
-      .json({ error: true, message: "Token No. or Password is Required..!" });
+      .json({
+        error: true,
+        message: "Token No. or Password is Required..!"
+      });
   }
 
   let result = await UsersModel.find({
@@ -55,15 +64,20 @@ router.post("/login", async function (req, res) {
     // generate token
     const token = utils.generateToken(userData);
     // return the token along with user details
-    res.status(200).json({ user: userData, token });
+    res.status(200).json({
+      user: userData,
+      token
+    });
   } else {
     return res
       .status(401)
-      .json({ error: true, message: "Token No. or Password is Wrong..!" });
+      .json({
+        error: true,
+        message: "Token No. or Password is Wrong..!"
+      });
   }
 });
 router.post("/signUp", async (req, res) => {
-  console.log("signUp", req.body);
   var getData = await UsersModel.findOne({
     ...req.body,
   });
@@ -79,5 +93,52 @@ router.post("/signUp", async (req, res) => {
     }
   }
 });
+
+router.get("/getUserInfoByUserId", async (req, res) => {
+  try {
+    var getData = await UsersModel.findOne({
+      _id: req.query.userId
+    });
+    if (getData) {
+      res.status(200).json({
+        title: "success",
+        status: true,
+        message: "Data Successfully fetched",
+        data: getData
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      title: "error",
+      status: false,
+      message: "Internal Server Error"
+    });
+  }
+
+})
+
+router.post("/updateUser", async (req, res) => {
+  try {
+    var getData = await UsersModel.findOneAndUpdate({
+      _id: req.query.userId
+    },{
+      ...req.body
+    });
+    if (getData) {
+      res.status(200).json({
+        title: "success",
+        status: true,
+        message: "Data Successfully Update"
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      title: "error",
+      status: false,
+      message: "Internal Server Error"
+    });
+  }
+
+})
 
 module.exports = router;
