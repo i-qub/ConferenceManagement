@@ -120,7 +120,7 @@ router.get("/getUserInfoByUserId", async (req, res) => {
 router.post("/updateUser", async (req, res) => {
   try {
     var getData = await UsersModel.findOneAndUpdate({
-      _id: req.query.userId
+      _id: req.body.userId
     },{
       ...req.body
     });
