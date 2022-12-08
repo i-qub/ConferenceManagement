@@ -145,7 +145,6 @@ export default function ContractorEdit(props) {
               }}
             />
           </Grid>
-          <></>
           <Grid item xs={12} sm={4}>
             <TextField
               type="date"
