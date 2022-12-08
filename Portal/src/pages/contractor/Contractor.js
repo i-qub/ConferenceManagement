@@ -92,7 +92,7 @@ function Contractor() {
             { title: "Department", field: "dept" },
           ]}
           fontSize="12px"
-          data={view}
+          data={view} 
           actions={[
             (rowData) => {
               return {
