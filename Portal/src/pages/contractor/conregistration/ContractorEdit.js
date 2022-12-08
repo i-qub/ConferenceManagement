@@ -75,7 +75,7 @@ export default function ContractorEdit(props) {
     setFTime(props.editData.fromtime);
     setTTime(props.editData.totime);
     // setPriority(props.editData.priority);
-    setConfHall(props.editData.confhall);
+    setConfHall("");
     setTotalMembers(props.editData.totalmembers);
     setMeetingOrganizer(props.editData.meetingorganizer);
     setEmail(props.editData.email);
@@ -96,10 +96,13 @@ export default function ContractorEdit(props) {
     });
     let time = [];
     apiData.map((data) => {
-      time.push([data.meetdate, data.fromtime, data.totime, data.confhall]);
+      time.push([data.meetdate, data.fromtime, data.totime, data.confhall,data._id]);
     });
     console.log(userTime);
     time.map((i) => {
+      if (i[4]===userTime[4])
+      { }
+      else{
       if (i[0] === userTime[0]) {
         if (i[3] === userTime[3]) {
           if (
@@ -125,6 +128,7 @@ export default function ContractorEdit(props) {
             setFTime("");
             setTTime("");
           }
+        }
         }
       }
     });
@@ -197,10 +201,12 @@ export default function ContractorEdit(props) {
                   setConfHall(event.target.value);
                   console.log(meetdate, fromtime, totime, event.target.value);
                   checkAvailability([
+                    
                     meetdate,
                     fromtime,
                     totime,
                     event.target.value,
+                    _id,
                   ]);
                 }}
                 value={confhall}
@@ -304,7 +310,17 @@ export default function ContractorEdit(props) {
                   fontSize: "18px",
                 }}
                 color="primary"
-                variant="contained"
+                variant="contained" 
+                // onClick={
+                //   checkAvailability([
+                //     meetdate,
+                //     fromtime,
+                //     totime,
+                //     confhall,
+                //     _id,
+                //   ])
+                // }   
+               
               >
                 Update
               </Button>

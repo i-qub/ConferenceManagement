@@ -113,6 +113,7 @@ function Contractor() {
                   rowData.token !== JSON.parse(sessionStorage.user)[0].token,
                 onClick: (e, rowData) => {
                   handleOpenForEdit(rowData);
+                 
                 },
               };
             },
