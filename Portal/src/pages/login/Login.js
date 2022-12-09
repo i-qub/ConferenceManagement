@@ -68,6 +68,7 @@ function Login(props) {
       .catch((error) => {
         setLoading(false);
         setError(error);
+        alert("User Not Found");
         console.log("71", error);
       });
   };
