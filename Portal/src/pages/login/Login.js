@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { setUserSession } from "../../components/Utils/Common";
+import {
+  removeUserSession,
+  setUserSession,
+} from "../../components/Utils/Common";
 import {
   Grid,
   CircularProgress,
@@ -21,6 +24,8 @@ import useStyles from "./styles";
 import logo from "./logo.png";
 import logo1 from "./logo1.png";
 import SignUp from "./SignUp";
+import ForgotPasswordPopup from "../../components/Popup/ForgotPasswordPopup";
+import ForgotPassword from "./ForgotPassword";
 
 function Login(props) {
   var classes = useStyles();
@@ -38,19 +43,27 @@ function Login(props) {
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
   const [error, setError] = useState(null);
   const [openNewEmployeePopup, setOpenNewEmployeePopup] = useState(false);
+  const [openForgotPasswordPopup, setOpenForgotPasswordPopup] = useState(false);
 
-  // const handleOpenForEdit = async (obj) => {
-  //   // setEditData(obj);
-  //   setOpenNewEmployeePopup(true);
-  // };
+  const handleOpenForEdit = async (obj) => {
+    // setEditData(obj);
+    setOpenNewEmployeePopup(true);
+  };
   const handleOpen = () => {
     setOpenNewEmployeePopup(true);
   };
   const handleClickClose = () => {
     setOpenNewEmployeePopup(false);
+    setOpenForgotPasswordPopup(false);
   };
-
+  const handleForgotPassword = () => {
+    setOpenForgotPasswordPopup(true);
+  };
   // handle button click of login form
+  const logout = () => {
+    removeUserSession();
+    props.history.push("/login");
+  };
   const login = () => {
     setError(null);
     setLoading(true);
@@ -68,8 +81,8 @@ function Login(props) {
       .catch((error) => {
         setLoading(false);
         setError(error);
-        alert("User Not Found");
-        console.log("71", error);
+        alert(error);
+        logout();
       });
   };
 
@@ -82,7 +95,7 @@ function Login(props) {
             className={classes.logotypeText}
             style={{ fontFamily: "Times new Roman", fontSize: "5rem" }}
           >
-            Menon and Menon Ltd.
+            Menon & Menon Ltd.
           </Typography>
         </div>
         <div className={classes.formContainer}>
@@ -171,8 +184,12 @@ function Login(props) {
                     Login
                   </Button>
                 )}
-                <Button color="primary" className={classes.forgetButton}>
-                  Forget Password
+                <Button
+                  color="primary"
+                  className={classes.forgetButton}
+                  onClick={handleForgotPassword}
+                >
+                  Forgot Password?
                 </Button>
               </div>
               <br />
@@ -206,6 +223,12 @@ function Login(props) {
         >
           <SignUp onSubmitClose={handleClickClose} />
         </EmpRegiPopup>
+        <ForgotPasswordPopup
+          openForgotPasswordPopup={openForgotPasswordPopup}
+          onClose={handleClickClose}
+        >
+          <ForgotPassword />
+        </ForgotPasswordPopup>
       </Grid>
     </>
   );
