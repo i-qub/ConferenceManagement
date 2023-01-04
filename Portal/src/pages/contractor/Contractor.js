@@ -61,19 +61,20 @@ function Contractor() {
 
   const deleteUser = async (id) => {
     await axios.get(`http://localhost:3000/con/deleteMeeting?id=${id}`);
+    // props.history.push("/contractorNew");
     window.location.reload(true);
   };
 
   return (
     <>
-      <PageTitle title="Conference Hall Management" />
+      <PageTitle title="Add Booking" />
       <Button
         variant="contained"
-        size="medium"
+        size="medium"   
         color="primary"
         onClick={handleClickOpen}
       >
-        Add Conference
+        Add Booking
       </Button>
       <br></br>
       <br></br>

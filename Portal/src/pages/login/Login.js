@@ -26,6 +26,7 @@ import logo1 from "./logo1.png";
 import SignUp from "./SignUp";
 import ForgotPasswordPopup from "../../components/Popup/ForgotPasswordPopup";
 import ForgotPassword from "./ForgotPassword";
+import { LaptopWindows } from "@material-ui/icons";
 
 function Login(props) {
   var classes = useStyles();
@@ -54,6 +55,9 @@ function Login(props) {
   };
   const handleClickClose = () => {
     setOpenNewEmployeePopup(false);
+    // setOpenForgotPasswordPopup(false);
+  };
+  const handleClickClose1 = () => {
     setOpenForgotPasswordPopup(false);
   };
   const handleForgotPassword = () => {
@@ -64,6 +68,10 @@ function Login(props) {
     removeUserSession();
     props.history.push("/login");
   };
+  const errorLogin = () =>{
+    
+    props.history.push("/login");
+  }
   const login = () => {
     setError(null);
     setLoading(true);
@@ -73,16 +81,24 @@ function Login(props) {
         password: password,
       })
       .then((response) => {
-        setLoading(false);
-        setUserSession(response.data.token, response.data.user);
-        props.history.push("/dashboard");
-        return;
+        if(response.data.user.length > 0){
+          setLoading(false);
+          setUserSession(response.data.token, response.data.user);
+          props.history.push("/dashboard");
+          return;
+        }else{
+          window.location.assign("/");
+        }
       })
       .catch((error) => {
-        setLoading(false);
-        setError(error);
-        alert(error);
-        logout();
+        console.log("91",error)
+        // window.location.assign("/");
+        // setLoading(false);
+        // setError(error);
+        // alert(error);
+        // logout();
+        // errorLogin();
+       
       });
   };
 
@@ -192,7 +208,7 @@ function Login(props) {
                   Forgot Password?
                 </Button>
               </div>
-              <br />
+              <br/> 
               <Button
                 color="primary"
                 variant="contained"
@@ -203,7 +219,9 @@ function Login(props) {
               </Button>
             </React.Fragment>
           </div>
-          <br></br>
+          <br/>
+          <br/>
+          
           <Typography color="primary" className={classes.copyright}>
             © {new Date().getFullYear()}{" "}
             <a
@@ -225,7 +243,8 @@ function Login(props) {
         </EmpRegiPopup>
         <ForgotPasswordPopup
           openForgotPasswordPopup={openForgotPasswordPopup}
-          onClose={handleClickClose}
+          // setOpenForgotPasswordPopup={setOpenForgotPasswordPopup}
+          onClose={handleClickClose1}
         >
           <ForgotPassword />
         </ForgotPasswordPopup>

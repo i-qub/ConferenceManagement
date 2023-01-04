@@ -55,17 +55,17 @@ export default makeStyles(theme => ({
     },
   },
   form: {
-    width: 320,
+    width: 300,
   },
   tab: {
     fontWeight: 400,
     fontSize: "5rem",
   },
   greeting: {
-    fontWeight: 500,
+    fontWeight: 400,
     textAlign: "center",
     // marginTop: theme.spacing(4),
-    paddingTop: "0.5rem",
+    paddingTop: "0.4rem",
   },
   subGreeting: {
     fontWeight: 500,
@@ -74,7 +74,7 @@ export default makeStyles(theme => ({
   },
   creatingButtonContainer: {
     marginTop: theme.spacing(2.5),
-    height: 46,
+    height: 40,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

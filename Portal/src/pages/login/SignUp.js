@@ -233,9 +233,9 @@ export default function SignUp(props) {
                 }}
                 style={{ width: "100%" }}
               >
-                <option aria-label="None" value="" />
+                {/* <option aria-label="Yes" value=" " /> */}
                 <option value="YES">YES</option>
-                <option value="NO">NO</option>
+                
               </Select>
             </FormControl>
             {/* <TextField

@@ -13,13 +13,14 @@ import axios from "axios";
 
 export default function ForgotPassword(props) {
   const { onSubmitClose } = props;
+  const { setopenForgotPasswordPopup } = props;
   // const classes = useStyles();
   const [empDetails, setEmpDetails] = useState({});
   const [token, setToken] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
+  const [error, setError] = useState(null);
+const adminPassword = "123456";
   const forgotPassword = (event) => {
     // console.log("51");
     event.preventDefault();
@@ -41,10 +42,17 @@ export default function ForgotPassword(props) {
       .then((response) => {
         console.log("68", response);
       });
+      onSubmitClose();
   };
   return (
     <>
-      <form onSubmit={forgotPassword}>
+      <form onSubmit={()=>{if(adminPassword===password) 
+                  {forgotPassword()}
+                else
+                { 
+                  alert("Incorrect Admin Password ");
+                  setopenForgotPasswordPopup(true);
+                  setPassword("");}}}>
         <Grid container spacing={2}>
           <Typography color="secondary">{error}</Typography>
           <Grid item xs={12}>
