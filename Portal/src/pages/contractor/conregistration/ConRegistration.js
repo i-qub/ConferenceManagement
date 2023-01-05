@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Radio from "@material-ui/core/Radio";
-// import RadioGroup from "@material-ui/core/RadioGroup";
-// import FormLabel from "@material-ui/core/FormLabel";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+
+import FormGroup from "@material-ui/core/FormGroup";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormLabel from "@material-ui/core/FormLabel";
 import { Button } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
@@ -24,8 +25,11 @@ export default function ConRegistration(props) {
   const { onSubmitClose } = props;
   const classes = useStyles();
   // const [status, setStatus] = useState(undefined);
+  const [multipleMeet,setMultipleMeet] =useState(false);
   const [meettitle, setName] = useState("");
   const [meetdate, setDOB] = useState("");
+  const [fromdate, setFromDate] = useState("");
+  const [todate, setToDate] = useState("");
   const [fromtime, setFTime] = useState("");
   const [totime, setTTime] = useState("");
   // const [priority, setPriority] = useState("");
@@ -41,6 +45,7 @@ export default function ConRegistration(props) {
   // const [submitState, setSubmitState] = useState(false);
 
   const newContractor = (event) => {
+  if(!multipleMeet){
     event.preventDefault();
     Axios.post(
       "http://localhost:3000/con/addContractor",
@@ -61,10 +66,12 @@ export default function ConRegistration(props) {
       onSubmitClose(),
     );
     window.location.reload();
+  }
   };
   useEffect(() => {
     axios.get("http://localhost:3000/con/getDailyData").then((response) => {
       setApiData(response.data.data);
+      // console.log(response.data.data);
     });
   }, []);
   let time = [];
@@ -120,10 +127,19 @@ export default function ConRegistration(props) {
               }}
             />
           </Grid>
+          <Grid item xs={12} sm={12}>
+          <FormGroup>
+          <FormLabel>Click For Multiple Days</FormLabel>
+            <FormControlLabel control={<Checkbox  onChange={(event) => {
+                setMultipleMeet(!multipleMeet);
+              }}/>} lable="lable" /> 
+          </FormGroup>
+          </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
               type="date"
               label="Metting date"
+              disabled={multipleMeet}
               fullWidth
               InputLabelProps={{
                 shrink: true,
@@ -132,11 +148,41 @@ export default function ConRegistration(props) {
                 setDOB(event.target.value);
               }}
             />
+           </Grid>
+           <Grid item xs={12} sm={4}>
+            <TextField
+              type="date"
+              label="From date"
+              disabled={!multipleMeet}
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={(event) => {
+                setFromDate(event.target.value);
+              }}
+            />
           </Grid>
+          
           <Grid item xs={12} sm={4}>
             <TextField
+              type="date"
+              label="To date"
+              disabled={!multipleMeet}
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={(event) => {
+                setToDate(event.target.value);
+              }}
+            /> 
+          </Grid> 
+          <Grid item xs={12} sm={4}>
+          <FormLabel>From Time</FormLabel>
+            <TextField
               type="time"
-              label="From Time"
+              // label="From Time"
               value={fromtime}
               fullWidth
               onChange={(event) => {
@@ -145,9 +191,10 @@ export default function ConRegistration(props) {
             />
           </Grid>
           <Grid item xs={12} sm={4}>
+          <FormLabel>To Time</FormLabel>
             <TextField
               type="time"
-              label="To Time"
+              // label="To Time"
               value={totime}
               fullWidth
               onChange={(event) => {
