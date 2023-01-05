@@ -86,7 +86,7 @@ function Contractor() {
             { title: "Meeting Date", field: "meetdate", width: "40%" },
             { title: "Start Time", field: "fromtime" },
             { title: "End Time", field: "totime" },
-            { title: "Conference Hall", field: "confhall" },
+            { title: "Hall", field: "confhall" },
             { title: "Organizer", field: "meetingorganizer" },
             { title: "Email", field: "email" },
             { title: "Mobile No.", field: "mobile1" },

@@ -113,7 +113,7 @@ export default function ConRegistration(props) {
           <Grid item xs={12}>
             <TextField
               required
-              label="Conference Meeting Title"
+              label="Meeting Title"
               fullWidth
               onChange={(event) => {
                 setName(event.target.value);
@@ -162,7 +162,7 @@ export default function ConRegistration(props) {
                 required
                 className={classes.formControl}
               >
-                Select Conference Hall
+                Select Hall
               </InputLabel>
               <Select
                 native

@@ -91,7 +91,8 @@ function ContractorNew() {
           title="Conference List"
           columns={[
             { title: 'Meeting Title', field: 'meettitle' },
-            { title: 'Meeting Date', field: 'meetdate', width: "40%" },
+            { title: 'Meeting Start Date', field: 'meetdate', width: "40%" },
+            { title: 'Meeting End Date', field: 'meetdate', width: "40%" },
             { title: 'Start Time', field: 'fromtime' },
             { title: 'End Time', field: 'totime' },
             { title: 'Priority', field: 'priority' },

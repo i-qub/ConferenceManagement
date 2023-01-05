@@ -87,6 +87,7 @@ function Login(props) {
           props.history.push("/dashboard");
           return;
         }else{
+          alert("Incorrect Token Number or Password");
           window.location.assign("/");
         }
       })
