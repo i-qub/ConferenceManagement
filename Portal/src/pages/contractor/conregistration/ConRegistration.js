@@ -45,6 +45,7 @@ export default function ConRegistration(props) {
   // const [submitState, setSubmitState] = useState(false);
 
   const newContractor = (event) => {
+    let date =  fromdate;
   if(!multipleMeet){
     event.preventDefault();
     Axios.post(
@@ -66,6 +67,37 @@ export default function ConRegistration(props) {
       onSubmitClose(),
     );
     window.location.reload();
+  }
+  else{
+    while(moment(date,"YYYY-MM-DD").isSameOrBefore(todate)){
+      Axios.post(
+        "http://localhost:3000/con/addContractor",
+        {
+          meettitle: meettitle,
+          meetdate: date,
+          fromtime: fromtime,
+          totime: totime,
+          confhall: confhall,
+          totalmembers: totalmembers,
+          meetingorganizer: meetingorganizer,
+          email: email,
+          mobile1: mobile1,
+          mobile2: mobile2,
+          dept: dept,
+          token: JSON.parse(sessionStorage.user)[0].token,
+        },
+        
+      );
+      // add.clone();
+      // before.add();
+      // date=moment(date,"YYYY-MM-DD").add(1,'days');
+      date=moment(date,"YYYY-MM-DD").clone().add(1,'days').format("YYYY-MM-DD");
+    
+      
+    };
+     
+    // onSubmitClose();
+    // window.location.reload();
   }
   };
   useEffect(() => {
