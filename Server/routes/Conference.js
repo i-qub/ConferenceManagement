@@ -5,6 +5,7 @@ const users = require("../models/UsersModel");
 const conference = require("../models/ConferencesModel");
 const moment = require("moment");
 router.post("/addContractor", async (req, res) => {
+  console.log("08",req.body)
   var getData = await conference.findOne({
     ...req.body,
   });
@@ -23,6 +24,7 @@ router.post("/addContractor", async (req, res) => {
 
 router.get("/viewContractor", async (req, res) => {
   let results = await conference.find({});
+  console.log("26",results)
   res.status(200).json(results);
 });
 

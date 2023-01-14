@@ -11,10 +11,19 @@ const conferenceSchema = new Schema(
       type: String,
       trim: true,
     },
+    fromdate: {
+      type: String,
+      trim: true,
+    },
+    todate:{
+      type:String,
+      trim:true
+    },
     fromtime: {
       type: String,
       trim: true,
     },
+    
     totime: {
       type: String,
       trim: true,

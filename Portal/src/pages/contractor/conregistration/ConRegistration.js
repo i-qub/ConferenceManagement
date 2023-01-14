@@ -27,7 +27,7 @@ export default function ConRegistration(props) {
   // const [status, setStatus] = useState(undefined);
   const [multipleMeet,setMultipleMeet] =useState(false);
   const [meettitle, setName] = useState("");
-  const [meetdate, setDOB] = useState("");
+  // const [meetdate, setDOB] = useState("");
   const [fromdate, setFromDate] = useState("");
   const [todate, setToDate] = useState("");
   const [fromtime, setFTime] = useState("");
@@ -45,30 +45,54 @@ export default function ConRegistration(props) {
   // const [submitState, setSubmitState] = useState(false);
 
   const newContractor = (event) => {
-    let date =  fromdate;
-  if(!multipleMeet){
     event.preventDefault();
-    Axios.post(
-      "http://localhost:3000/con/addContractor",
-      {
-        meettitle: meettitle,
-        meetdate: meetdate,
-        fromtime: fromtime,
-        totime: totime,
-        confhall: confhall,
-        totalmembers: totalmembers,
-        meetingorganizer: meetingorganizer,
-        email: email,
-        mobile1: mobile1,
-        mobile2: mobile2,
-        dept: dept,
-        token: JSON.parse(sessionStorage.user)[0].token,
-      },
-      onSubmitClose(),
-    );
-    window.location.reload();
-  }
-  else{
+    let date =  fromdate;
+  //   Axios.post(
+  //     "http://localhost:3000/con/addContractor",
+  //     {
+  //       meettitle: meettitle,
+  //       fromdate: fromdate,
+  //       todate: todate,
+  //       fromtime: fromtime,
+  //       totime: totime,
+  //       confhall: confhall,
+  //       totalmembers: totalmembers,
+  //       meetingorganizer: meetingorganizer,
+  //       email: email,
+  //       mobile1: mobile1,
+  //       mobile2: mobile2,
+  //       dept: dept,
+  //       token: JSON.parse(sessionStorage.user)[0].token,
+  //     },
+  //     onSubmitClose(),
+  //   );
+  //   window.location.reload();
+  // };
+    
+  // if(!multipleMeet){
+  //   event.preventDefault();
+  //   Axios.post(
+  //     "http://localhost:3000/con/addContractor",
+  //     {
+  //       meettitle: meettitle,
+  //       fromdate: fromdate,
+  //       todate: todate,
+  //       fromtime: fromtime,
+  //       totime: totime,
+  //       confhall: confhall,
+  //       totalmembers: totalmembers,
+  //       meetingorganizer: meetingorganizer,
+  //       email: email,
+  //       mobile1: mobile1,
+  //       mobile2: mobile2,
+  //       dept: dept,
+  //       token: JSON.parse(sessionStorage.user)[0].token,
+  //     },
+  //     onSubmitClose(),
+  //   );
+  //   window.location.reload();
+  // }
+  // else{
     while(moment(date,"YYYY-MM-DD").isSameOrBefore(todate)){
       Axios.post(
         "http://localhost:3000/con/addContractor",
@@ -98,7 +122,7 @@ export default function ConRegistration(props) {
      
     // onSubmitClose();
     // window.location.reload();
-  }
+  // }
   };
   useEffect(() => {
     axios.get("http://localhost:3000/con/getDailyData").then((response) => {
@@ -145,6 +169,8 @@ export default function ConRegistration(props) {
     });
   }
   // console.log(submitState);
+  console.log(fromdate);
+  console.log(todate);
   return (
     <>
       <form onSubmit={newContractor}>
@@ -159,15 +185,15 @@ export default function ConRegistration(props) {
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={12}>
+          {/* <Grid item xs={12} sm={12}>
           <FormGroup>
           <FormLabel>Click For Multiple Days</FormLabel>
             <FormControlLabel control={<Checkbox  onChange={(event) => {
                 setMultipleMeet(!multipleMeet);
               }}/>} lable="lable" /> 
           </FormGroup>
-          </Grid>
-          <Grid item xs={12} sm={4}>
+          </Grid> */}
+          {/* <Grid item xs={12} sm={4}>
             <TextField
               type="date"
               label="Metting date"
@@ -180,12 +206,12 @@ export default function ConRegistration(props) {
                 setDOB(event.target.value);
               }}
             />
-           </Grid>
+           </Grid> */}
            <Grid item xs={12} sm={4}>
             <TextField
               type="date"
               label="From date"
-              disabled={!multipleMeet}
+              // disabled={!multipleMeet}
               fullWidth
               InputLabelProps={{
                 shrink: true,
@@ -200,7 +226,8 @@ export default function ConRegistration(props) {
             <TextField
               type="date"
               label="To date"
-              disabled={!multipleMeet}
+              onload="getDate()"
+              // disabled={!multipleMeet}
               fullWidth
               InputLabelProps={{
                 shrink: true,
@@ -248,7 +275,7 @@ export default function ConRegistration(props) {
                 onChange={(event) => {
                   setConfHall(event.target.value);
                   checkAvailability([
-                    meetdate,
+                    // meetdate,
                     fromtime,
                     totime,
                     event.target.value,
