@@ -84,8 +84,6 @@ function Contractor() {
           columns={[
             { title: "Meeting Title", field: "meettitle" },
             { title: "Meeting Date", field: "meetdate", },
-            // {title:"Meeting End Date",field:"todate"},
-            // {title:"Meeting End Date",field:"todate"},
             { title: "Start Time", field: "fromtime" },
             { title: "End Time", field: "totime" },
             { title: "Hall", field: "confhall" },

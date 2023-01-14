@@ -27,7 +27,7 @@ export default function ConRegistration(props) {
   // const [status, setStatus] = useState(undefined);
   const [multipleMeet,setMultipleMeet] =useState(false);
   const [meettitle, setName] = useState("");
-  // const [meetdate, setDOB] = useState("");
+  const [meetdate, setDOB] = useState("");
   const [fromdate, setFromDate] = useState("");
   const [todate, setToDate] = useState("");
   const [fromtime, setFTime] = useState("");
@@ -42,7 +42,7 @@ export default function ConRegistration(props) {
   const [dept, setDepartment] = useState("");
 
   const [apiData, setApiData] = useState([]);
-  // const [submitState, setSubmitState] = useState(false);
+  const [submitState, setSubmitState] = useState(false);
 
   const newContractor = (event) => {
     event.preventDefault();
@@ -112,16 +112,12 @@ export default function ConRegistration(props) {
         },
         
       );
-      // add.clone();
-      // before.add();
-      // date=moment(date,"YYYY-MM-DD").add(1,'days');
       date=moment(date,"YYYY-MM-DD").clone().add(1,'days').format("YYYY-MM-DD");
-    
-      
+   
     };
      
-    // onSubmitClose();
-    // window.location.reload();
+    onSubmitClose();
+    window.location.reload();
   // }
   };
   useEffect(() => {
@@ -274,13 +270,18 @@ export default function ConRegistration(props) {
                 native
                 onChange={(event) => {
                   setConfHall(event.target.value);
+                  let meetdate =  fromdate;
+                  while(moment(meetdate,"YYYY-MM-DD").isSameOrBefore(todate)){
                   checkAvailability([
-                    // meetdate,
+                    meetdate,
                     fromtime,
                     totime,
                     event.target.value,
+                    todate
                   ]);
+                  meetdate=moment(meetdate,"YYYY-MM-DD").clone().add(1,'days').format("YYYY-MM-DD");
                 }}
+              }
                 value={confhall}
                 style={{ width: "100%" }}
               >
@@ -378,7 +379,7 @@ export default function ConRegistration(props) {
                 style={{
                   fontSize: "18px",
                 }}
-                // disabled={submitState}
+                disabled={submitState}
                 color="primary"
                 variant="contained"
               >
