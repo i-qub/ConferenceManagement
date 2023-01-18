@@ -8,16 +8,13 @@ const conferenceSchema = new Schema(
       trim: true,
     },
     meetdate: {
-      type: String,
-      trim: true,
+      type: String
     },
     fromdate: {
-      type: String,
-      trim: true,
+      type: Date
     },
     todate:{
-      type:String,
-      trim:true
+      type:Date
     },
     fromtime: {
       type: String,

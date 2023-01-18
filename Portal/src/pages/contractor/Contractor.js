@@ -9,6 +9,7 @@ import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
 import EditEmployeesPopup from "../../components/Popup/EditEmployeesPopup";
 import ContractorEdit from "./conregistration/ContractorEdit";
+import moment from "moment";
 // import { setUserSession } from "../../components/Utils/Common";
 
 const theme = createTheme({
@@ -80,10 +81,12 @@ function Contractor() {
       <br></br>
       <MuiThemeProvider theme={theme}>
         <MaterialTable
-          title="Conference List"
+          title="Hall  Booking List"
           columns={[
             { title: "Meeting Title", field: "meettitle" },
-            { title: "Meeting Date", field: "meetdate", },
+            { title: "Meeting Date", field: "meetdate" },
+            // {title:"Meeting End Date",field:"todate"},
+            // {title:"Meeting End Date",field:"todate"},
             { title: "Start Time", field: "fromtime" },
             { title: "End Time", field: "totime" },
             { title: "Hall", field: "confhall" },

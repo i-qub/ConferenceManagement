@@ -270,8 +270,8 @@ export default function ConRegistration(props) {
                 native
                 onChange={(event) => {
                   setConfHall(event.target.value);
-                  let meetdate =  fromdate;
-                  while(moment(meetdate,"YYYY-MM-DD").isSameOrBefore(todate)){
+                  // let meetdate =  fromdate;
+                  // while(moment(meetdate,"YYYY-MM-DD").isSameOrBefore(todate)){
                   checkAvailability([
                     meetdate,
                     fromtime,
@@ -279,8 +279,9 @@ export default function ConRegistration(props) {
                     event.target.value,
                     todate
                   ]);
-                  meetdate=moment(meetdate,"YYYY-MM-DD").clone().add(1,'days').format("YYYY-MM-DD");
-                }}
+                  // meetdate=moment(meetdate,"YYYY-MM-DD").clone().add(1,'days').format("YYYY-MM-DD");
+                // }
+              }
               }
                 value={confhall}
                 style={{ width: "100%" }}
@@ -302,7 +303,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              required
+              // required
               label="Meeting Organizer"
               fullWidth
               onChange={(event) => {
@@ -313,7 +314,7 @@ export default function ConRegistration(props) {
           <Grid item xs={12} sm={4}>
             <TextField
               type="email"
-              required
+              // required
               label="Email"
               fullWidth
               onChange={(event) => {
@@ -324,7 +325,7 @@ export default function ConRegistration(props) {
           <Grid item xs={12} sm={4}>
             <TextField
               type="number"
-              required
+              // required
               label="Mobile No."
               fullWidth
               inputProps={{ maxLength: 10 }}
@@ -348,7 +349,7 @@ export default function ConRegistration(props) {
             <FormControl required className={classes.formControl}>
               <InputLabel
                 htmlFor="age-native-required"
-                required
+                // required
                 className={classes.formControl}
               >
                 Department
