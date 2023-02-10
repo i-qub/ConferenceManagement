@@ -9,7 +9,7 @@ export default function RegiPopup(props) {
       <DialogTitle>
         <div style={{ display: "flex" }}>
           <div style={{ flexGrow: 1, fontWeight: "bold", paddingTop: "5px" }}>
-            Add Conference Meeting
+            Add  Meeting
           </div>
           <Button
             style={{

@@ -117,7 +117,7 @@ export default function Header(props) {
           Menon and Menon Ltd.
         </Typography>
         <div className={classes.grow} />
-        <IconButton
+        {/* <IconButton
           color="inherit"
           aria-haspopup="true"
           aria-controls="mail-menu"
@@ -133,7 +133,7 @@ export default function Header(props) {
           >
             <NotificationsIcon classes={{ root: classes.headerIcon }} />
           </Badge>
-        </IconButton>
+        </IconButton> */}
         <IconButton
           aria-haspopup="true"
           color="inherit"
@@ -175,7 +175,7 @@ export default function Header(props) {
               {user[0].name}
             </Typography>
           </div>
-          <MenuItem
+          {/* <MenuItem
             className={classNames(
               classes.profileMenuItem,
               classes.headerMenuItem,
@@ -191,7 +191,7 @@ export default function Header(props) {
             )}
           >
             <LockIcon className={classes.profileMenuIcon} /> Change Password
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem
             className={classes.profileMenuLink}
             color="primary"
