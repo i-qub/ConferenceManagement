@@ -30,7 +30,7 @@ const adminPassword = "123456";
       )
       .then((response) => {
         setEmpDetails(response.data.data);
-        console.log(response.data);
+        alert(console.log(response.data));
       });
 
     let newEmpDetails = { ...empDetails, password: "123456" };
@@ -44,14 +44,14 @@ const adminPassword = "123456";
       });
       onSubmitClose();
   };
-  function passwordlength(password){ 
-    if(password.length < 6)
-    {
-       alert("Password must not be less then 6 characters");
+  // function passwordlength(password){ 
+  //   if(password.length < 6)
+  //   {
+  //      alert("Password must not be less then 6 characters");
 
-    }
+  //   }
 
-  }
+  // }
   return (
     <>
       <form onSubmit={()=>{if(adminPassword===password) 
@@ -84,9 +84,9 @@ const adminPassword = "123456";
               label="Administrator Password"
               fullWidth
               value={password}
-              onBlur={(e) => {
+              onchange={(e) => {
                 setPassword(e.target.value);
-                passwordlength(setPassword(e.target.value));
+                //  {(e) => {passwordlength(setPassword(e.target.value))}};
               }}
             />
           </Grid>
