@@ -17,7 +17,8 @@ router.post("/addContractor", async (req, res) => {
     let saveData = await data.save();
     if (saveData) {
       res.status(200).json("success");
-    }
+    } 
+      
   }
 });
 
@@ -74,10 +75,10 @@ router.post("/update", async (req, res, next) => {
 router.get("/getDailyData", async (req, res, next) => {
   try {
     const days = moment(req.query.formDate || new Date())
-      .add(7, "days")
+      .add(365, "days")
       .format("YYYY-MM-DD");
     let data = await conference.find({
-      meetdate: {
+      meetdate: {////////////////////////////
         $lte: days,
       },
     });

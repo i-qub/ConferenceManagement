@@ -45,7 +45,7 @@ export default function ContractorEdit(props) {
     // const { id } = useParams();
     event.preventDefault();
     Axios.post(
-      "http://localhost:3000/con/update",
+      "http://192.168.1.52:3000/con/update",
       {
         id: _id,
         meettitle: meettitle,

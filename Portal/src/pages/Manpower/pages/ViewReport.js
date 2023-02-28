@@ -24,7 +24,7 @@ function ViewReport(props) {
         const { token } = props;
         const { startDate } = props;
         const { endDate } = props;
-        axios.post('http://localhost:3000/report/manpowerReport', {
+        axios.post('http://192.168.1.52:3000/report/manpowerReport', {
             token: token,
             startDate: startDate,
             endDate: endDate

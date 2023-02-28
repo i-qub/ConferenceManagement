@@ -68,23 +68,23 @@ function ActualManpower() {
   const [reqs_fettling, req_fettling] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/req/shell_core').then((response) => { req_shell_core(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/cold_box').then((response) => { req_cold_box(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/arpa_900').then((response) => { req_arpa_900(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/arpa_450').then((response) => { req_arpa_450(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/w_b_q_3').then((response) => { req_w_b_q_3(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/hand_moulding').then((response) => { req_hand_moulding(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/melting').then((response) => { req_melting(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/fettling').then((response) => { req_fettling(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/shell_core').then((response) => { req_shell_core(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/cold_box').then((response) => { req_cold_box(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/arpa_900').then((response) => { req_arpa_900(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/arpa_450').then((response) => { req_arpa_450(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/w_b_q_3').then((response) => { req_w_b_q_3(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/hand_moulding').then((response) => { req_hand_moulding(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/melting').then((response) => { req_melting(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/fettling').then((response) => { req_fettling(response.data[0].requirement); });
 
-    axios.post('http://localhost:3000/mp/getAllocationData_shell_core', { verified: 'YES', shift: shift }).then((response) => { set_shell_core(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_cold_box', { verified: 'YES', shift: shift }).then((response) => { set_cold_box(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_arpa_900', { verified: 'YES', shift: shift }).then((response) => { set_arpa_900(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_arpa_450', { verified: 'YES', shift: shift }).then((response) => { set_arpa_450(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_w_b_q_3', { verified: 'YES', shift: shift }).then((response) => { set_w_b_q_3(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_hand_moulding', { verified: 'YES', shift: shift }).then((response) => { set_hand_moulding(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_melting', { verified: 'YES', shift: shift }).then((response) => { set_melting(response.data[0].count); });
-    axios.post('http://localhost:3000/mp/getAllocationData_fettling', { verified: 'YES', shift: shift }).then((response) => { set_fettling(response.data[0].count); setLoading(false); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_shell_core', { verified: 'YES', shift: shift }).then((response) => { set_shell_core(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_cold_box', { verified: 'YES', shift: shift }).then((response) => { set_cold_box(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_arpa_900', { verified: 'YES', shift: shift }).then((response) => { set_arpa_900(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_arpa_450', { verified: 'YES', shift: shift }).then((response) => { set_arpa_450(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_w_b_q_3', { verified: 'YES', shift: shift }).then((response) => { set_w_b_q_3(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_hand_moulding', { verified: 'YES', shift: shift }).then((response) => { set_hand_moulding(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_melting', { verified: 'YES', shift: shift }).then((response) => { set_melting(response.data[0].count); });
+    axios.post('http://192.168.1.52:3000/mp/getAllocationData_fettling', { verified: 'YES', shift: shift }).then((response) => { set_fettling(response.data[0].count); setLoading(false); });
   }, [shift]);
 
   var requirements = parseInt(reqs_shell_core) + parseInt(reqs_cold_box) + parseInt(reqs_arpa_900) + parseInt(reqs_arpa_450) + parseInt(reqs_w_b_q_3) + parseInt(reqs_hand_moulding) + parseInt(reqs_melting) + parseInt(reqs_fettling);

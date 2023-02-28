@@ -11,7 +11,7 @@ export default function ViewSkillDetails(props) {
     useEffect(() => {
         const { token } = props;
         const { subdept } = props;
-        axios.post('http://localhost:3000/emp/viewSkillDetails', {
+        axios.post('http://192.168.1.52:3000/emp/viewSkillDetails', {
             token: token,
             subdept: subdept
         }).then((response) => {
@@ -343,7 +343,7 @@ export default function ViewSkillDetails(props) {
     const updateSkills = (event) => {
         event.preventDefault();
         if (subdept === 'Melting') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 panel_no_1_operator: panel_no_1_operator,
@@ -366,7 +366,7 @@ export default function ViewSkillDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'Arpa 450') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 cope_m_c_operator: cope_m_c_operator,
@@ -395,7 +395,7 @@ export default function ViewSkillDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'W B Q 3') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 cope_m_c_operator: cope_m_c_operator,
@@ -427,7 +427,7 @@ export default function ViewSkillDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'Cold Box') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 cold_box_machineno_01: cold_box_machineno_01,
@@ -484,7 +484,7 @@ export default function ViewSkillDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'Shell Core') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 shell_machine_no_01: shell_machine_no_01,
@@ -531,7 +531,7 @@ export default function ViewSkillDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'Arpa 900') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 cope_m_c_operator: cope_m_c_operator,
@@ -571,7 +571,7 @@ export default function ViewSkillDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'Fettling') {
-            axios.post("http://localhost:3000/emp/updateSkills", {
+            axios.post("http://192.168.1.52:3000/emp/updateSkills", {
                 token: token,
                 subdept: subdept,
                 final_fettling_all_item: final_fettling_all_item,

@@ -26,7 +26,7 @@ function ViewSummaryReport(props) {
         const { token } = props;
         const { month } = props;
         const { year } = props;
-        axios.post('http://localhost:3000/report/summaryReport', {
+        axios.post('http://192.168.1.52:3000/report/summaryReport', {
             token: token,
             month: month,
             year: year

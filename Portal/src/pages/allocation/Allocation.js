@@ -38,7 +38,7 @@ function Allocation() {
   useEffect(() => {
     const user = getUser();
     const dept = user[0].dept;
-    axios.post('http://localhost:3000/emp/allocation', {
+    axios.post('http://192.168.1.52:3000/emp/allocation', {
       dept: dept
     }).then((response) => {
       setView(response.data);

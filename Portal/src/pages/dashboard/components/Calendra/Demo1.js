@@ -25,7 +25,7 @@ function Demo1() {
   // const [locale, setLocale] = useState("en-US");
   const [dispConfHall, setDispConfHall] = useState("Conference Hall");
   useEffect(() => {
-    axios.get("http://localhost:3000/con/getDailyData").then((response) => {
+    axios.get("http://192.168.1.52:3000/con/getDailyData").then((response) => {
       setApiData(response.data.data);
        console.log(response.data.data);
     });
@@ -51,14 +51,14 @@ function Demo1() {
       data.totime.split(":")[1],
     );
     data1.startDate = startDate;
-    console.log(data1.startDate);
+    // console.log(data1.startDate);
 
     data1.endDate = endDate;
     data1.title = data["meettitle"];
     data1.id = data["_id"];
     data1.location = data.confhall;
     schedulerDataNew.push(data1);
-    console.log(data1);
+    // console.log(data1);
   });
   var newArray = schedulerDataNew.filter(function (el) {
     return el.location === dispConfHall;

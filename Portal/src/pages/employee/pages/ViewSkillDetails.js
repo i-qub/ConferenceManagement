@@ -10,7 +10,7 @@ export default function ViewSkillDetails(props) {
     useEffect(() => {
         const { token } = props;
         const { subdept } = props;
-        axios.post('http://localhost:3000/emp/viewSkillDetails', {
+        axios.post('http://192.168.1.52:3000/emp/viewSkillDetails', {
             token: token,
             subdept: subdept
         }).then((response) => {

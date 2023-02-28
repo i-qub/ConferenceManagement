@@ -72,7 +72,7 @@ function ExpectedEmployees(props) {
     useEffect(() => {
         const { subdept } = props;
         const { shift } = props;
-        axios.post('http://localhost:3000/mp/getManpowerData', { subdept: subdept, shift: shift, verified: 'NO' }).then((response) => {
+        axios.post('http://192.168.1.52:3000/mp/getManpowerData', { subdept: subdept, shift: shift, verified: 'NO' }).then((response) => {
             setView(response.data);
         });
     }, [props]);
@@ -104,7 +104,7 @@ function ExpectedEmployees(props) {
                         {
                             onClick: (event, rowData) => {
                                 event.stopPropagation();
-                                axios.post('http://localhost:3000/mp/verifyManpower', {
+                                axios.post('http://192.168.1.52:3000/mp/verifyManpower', {
                                     token: rowData.token,
                                     subdept: rowData.subdept,
                                     punchin: rowData.punchin,

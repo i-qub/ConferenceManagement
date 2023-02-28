@@ -60,13 +60,13 @@ function DeactivatedList() {
         const user = getUser();
         if (user[0].role === 'contractor') {
             const contractor = user[0].contractor;
-            axios.post('http://localhost:3000/emp/deactivatedEmpByContractor', {
+            axios.post('http://192.168.1.52:3000/emp/deactivatedEmpByContractor', {
                 contractor: contractor
             }).then((response) => {
                 setView(response.data);
             });
         } else {
-            axios.get('http://localhost:3000/emp/deactivatedAllEmp')
+            axios.get('http://192.168.1.52:3000/emp/deactivatedAllEmp')
                 .then((response) => {
                     setView(response.data);
                 });

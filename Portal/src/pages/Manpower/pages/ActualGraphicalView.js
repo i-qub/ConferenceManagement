@@ -186,362 +186,362 @@ function ActualGraphicalView(props) {
 
     //Melting
     if (subdeptManpower === 'Melting') {
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_1_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_1_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_1_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_1_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_1_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_1_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_1_charge_collector', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_1_charge_collector', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_1_charge_collector(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_2_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_2_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_2_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_2_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_2_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_2_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_3_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_3_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_3_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_panel_no_3_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_panel_no_3_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpanel_no_3_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_spectro_coin_test_bar_sample', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_spectro_coin_test_bar_sample', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setspectro_coin_test_bar_sample(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcrane_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_slag_collector_panel_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_slag_collector_panel_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setslag_collector_panel_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_slag_collector_panel_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_slag_collector_panel_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setslag_collector_panel_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_slag_collector_panel_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_slag_collector_panel_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setslag_collector_panel_3(response.data); setLoading(false); });
     }
     //Arpa 450
     else if (subdeptManpower === 'Arpa 450') {
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_m_c_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_box_loading_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_box_loading_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_box_loading_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_m_c_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_box_loading_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_box_loading_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_box_loading_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_box_unloading_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_box_unloading_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_box_unloading_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_tranfer_fixture_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_tranfer_fixture_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_tranfer_fixture_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_tranfer_fixture_co_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_tranfer_fixture_co_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_tranfer_fixture_co_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_setting_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_setting_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_setting_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamping_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamping_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamping_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamping_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamping_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamping_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_mould_venting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_mould_venting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_mould_venting_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_box_closing_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_box_closing_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setbox_closing_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_pouring_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_pouring_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpouring_crane_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_pouring_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_pouring_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpouring_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_k_out_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_k_out_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setk_out_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_casting_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_casting_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcasting_transfer_op(response.data); setLoading(false); });
     }
     //W B Q 3
     else if (subdeptManpower === 'W B Q 3') {
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_m_c_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_m_c_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_m_c_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_m_c_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_m_c_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_m_c_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_m_c_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_m_c_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_empty_pallet_trasfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_empty_pallet_trasfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setempty_pallet_trasfer_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_box_venting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_box_venting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_box_venting_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_core_setting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_core_setting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_core_setting_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_core_setting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_core_setting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_core_setting_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_3(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_box_closing_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_box_closing_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setbox_closing_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_box_closing_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_box_closing_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setbox_closing_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamping_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamping_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamping_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamping_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamping_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamping_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_mold_box_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_mold_box_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setmold_box_transfer_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_pouring_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_pouring_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpouring_crane_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_pouring_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_pouring_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpouring_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_k_out_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_k_out_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setk_out_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_k_out_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_k_out_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setk_out_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_sand_plant_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_sand_plant_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsand_plant_operator(response.data); setLoading(false); });
     }
     //Cold Box
     else if (subdeptManpower === 'Cold Box') {
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_01(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_01_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_01_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_01_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_02', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_02', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_02(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_02_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_02_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_02_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_02_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_02_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_02_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_03', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_03', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_03(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_03_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_03_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_03_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_04', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_04', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_04(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_04_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_04_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_04_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_05', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_05', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_05(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_05_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_05_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_05_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_05_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_05_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_05_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_06', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_06', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_06(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_06_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_06_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_06_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_06_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_06_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_06_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_07', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_07', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_07(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_07_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_07_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_07_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_07_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_07_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_07_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_08', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_08', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_08(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_08_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_08_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_08_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_09', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_09', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_09(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_10', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_10', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_10(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_11', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_11', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_11(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cold_box_machineno_11_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cold_box_machineno_11_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcold_box_machineno_11_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_sand_feeding_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_sand_feeding_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsand_feeding_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_sand_feeding_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_sand_feeding_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsand_feeding_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_mixer_900', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_mixer_900', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setmixer_900(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_mixer_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_mixer_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setmixer_450(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_painting_skilled_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_painting_skilled_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpainting_skilled_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_painting_operator_900_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_painting_operator_900_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpainting_operator_900_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_painting_operator_900_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_painting_operator_900_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpainting_operator_900_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_painting_operator_900_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_painting_operator_900_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpainting_operator_900_3(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_painting_skilled_operator_arpa_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_painting_skilled_operator_arpa_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpainting_skilled_operator_arpa_450(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_painting_operator_arpa_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_painting_operator_arpa_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpainting_operator_arpa_450(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_skilled_inspector_arpa_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_skilled_inspector_arpa_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setskilled_inspector_arpa_450(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_oven_skilled_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_oven_skilled_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setoven_skilled_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_oven_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_oven_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setoven_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_box_cleaning_vent_changing', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_box_cleaning_vent_changing', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_box_cleaning_vent_changing(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_inspection_arpa900', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_inspection_arpa900', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setinspection_arpa900(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_inspection_co_operator_arpa_900', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_inspection_co_operator_arpa_900', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setinspection_co_operator_arpa_900(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_assembly_operator_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_assembly_operator_450', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setassembly_operator_450(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_assembly_450_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_assembly_450_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setassembly_450_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_tool_change', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_tool_change', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { settool_change(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_skill_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_skill_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_skill_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_skill_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_skill_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_skill_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_skill_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_skill_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_skill_co_operator_2(response.data); setLoading(false); });
     }
     //Shell Core
     else if (subdeptManpower === 'Shell Core') {
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_01(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_02', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_02', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_02(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_03', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_03', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_03(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_04', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_04', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_04(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_05', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_05', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_05(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_05_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_05_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_05_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_06', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_06', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_06(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_07', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_07', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_07(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_08', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_08', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_08(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_09', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_09', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_09(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_10', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_10', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_10(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_12', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_12', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_12(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_13', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_13', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_13(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_14', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_14', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_14(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_15', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_15', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_15(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_16', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_16', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_16(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_17', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_17', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_17(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_19', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_19', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_19(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_20', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_20', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_20(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_21', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_21', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_21(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_shell_machine_no_22', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_shell_machine_no_22', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setshell_machine_no_22(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_jd_head_assembly_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_jd_head_assembly_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setjd_head_assembly_01(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_jd_head_assembly_02', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_jd_head_assembly_02', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setjd_head_assembly_02(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_jd_head_assembly_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_jd_head_assembly_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setjd_head_assembly_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_same_head', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_same_head', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsame_head(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_same_kf_head_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_same_kf_head_01', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsame_kf_head_01(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_same_kf_head_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_same_kf_head_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsame_kf_head_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_same_kf_head_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_same_kf_head_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsame_kf_head_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_tata_4sp_block', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_tata_4sp_block', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { settata_4sp_block(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_oven_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_oven_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_oven_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_oven_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_oven_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_oven_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_oven_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_oven_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_oven_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_oven_co_operator_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_oven_co_operator_3', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_oven_co_operator_3(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_inspection', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_inspection', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setinspection(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_inspection_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_inspection_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setinspection_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_assembly_dipping', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_assembly_dipping', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setassembly_dipping(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_tool_change', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_tool_change', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { settool_change(response.data); setLoading(false); });
     }
     //Arpa 900
     else if (subdeptManpower === 'Arpa 900') {
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_m_c_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_m_c_co_operator_air_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_m_c_co_operator_air_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setm_c_co_operator_air_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_m_c_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_m_c_co_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setm_c_co_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_m_c_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_m_c_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_m_c_co_operator_air_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_m_c_co_operator_air_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setm_c_co_operator_air_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_m_c_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_m_c_co_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setm_c_co_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_drag_mould_painting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_drag_mould_painting_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setdrag_mould_painting_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_setting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_setting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_setting_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_setting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_setting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_setting_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_core_tranfer_fixture_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_core_tranfer_fixture_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcore_tranfer_fixture_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_box_closing_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_box_closing_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setbox_closing_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_venting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_venting_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setventing_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_cope_box_prepration_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_cope_box_prepration_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcope_box_prepration_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamping_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamping_operator_1', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamping_operator_1(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamping_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamping_operator_2', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamping_operator_2(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_mold_box_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_mold_box_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setmold_box_transfer_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_clamp_pin_removing_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_clamp_pin_removing_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setclamp_pin_removing_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_pouring_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_pouring_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpouring_crane_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_pouring_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_pouring_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setpouring_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_k_out_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_k_out_crane_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setk_out_crane_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_k_out_crane_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_k_out_crane_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setk_out_crane_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_k_out_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_k_out_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setk_out_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_casting_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_casting_transfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcasting_transfer_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_empty_box_trasfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_empty_box_trasfer_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setempty_box_trasfer_op(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_sand_plant_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_sand_plant_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsand_plant_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_sand_plant_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_sand_plant_co_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsand_plant_co_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_new_sand_add_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_new_sand_add_operator', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setnew_sand_add_operator(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_compactibility_checking_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_compactibility_checking_op', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcompactibility_checking_op(response.data); setLoading(false); });
     }
     //Fettling  
     else if (subdeptManpower === 'Fettling') {
-      axios.post('http://localhost:3000/graphical/getAllocation_final_fettling_all_item', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_final_fettling_all_item', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setfinal_fettling_all_item(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_averaging', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_averaging', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setaveraging(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_crane_operating', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_crane_operating', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setcrane_operating(response.data); });
-      axios.post('http://localhost:3000/graphical/getAllocation_sami_final_fettling', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_sami_final_fettling', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { setsami_final_fettling(response.data); setLoading(false); });
     }
     //Hand Moulding  
     else if (subdeptManpower === 'Hand Moulding') {
-      axios.post('http://localhost:3000/graphical/getAllocation_hand_moulding', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
+      axios.post('http://192.168.1.52:3000/graphical/getAllocation_hand_moulding', { subdeptManpower: subdeptManpower, shift: shift, verified: 'YES' })
         .then((response) => { sethand_moulding(response.data); setLoading(false); });
     }
   }, [props]);

@@ -48,7 +48,7 @@ function ContractorNew() {
   const [view, setView] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/con/viewContractor')
+    axios.get('http://192.168.1.52:3000/con/viewContractor')
       .then((response) => {
         setView(response.data);
       });
@@ -66,7 +66,7 @@ function ContractorNew() {
   };
 
   const deactivate = () => {
-    axios.post('http://localhost:3000/emp/deactivateEmp', {
+    axios.post('http://192.168.1.52:3000/emp/deactivateEmp', {
       token: token,
       deactivationDate: deactivationDate
     })

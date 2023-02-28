@@ -20,7 +20,7 @@ export default function ChangeLocation(props) {
 
     useEffect(() => {
         const { token } = props;
-        axios.post('http://localhost:3000/emp/viewDetails', {
+        axios.post('http://192.168.1.52:3000/emp/viewDetails', {
             token: token
         }).then((response) => {
             setDepartment(response.data[0].dept);
@@ -36,25 +36,25 @@ export default function ChangeLocation(props) {
     const changeLocation = (event) => {
         event.preventDefault();
         if (dept === 'Melting') {
-            axios.post("http://localhost:3000/emp/changeLocation", {
+            axios.post("http://192.168.1.52:3000/emp/changeLocation", {
                 token: token, dept: dept, subdept: dept, location: location
             },
                 onSubmitClose());
             window.location.reload();
         } else if (dept === 'Fettling') {
-            axios.post("http://localhost:3000/emp/changeLocation", {
+            axios.post("http://192.168.1.52:3000/emp/changeLocation", {
                 token: token, dept: dept, subdept: dept, location: location
             },
                 onSubmitClose());
             window.location.reload();
         } else if (subdept === 'Hand Moulding') {
-            axios.post("http://localhost:3000/emp/changeLocation", {
+            axios.post("http://192.168.1.52:3000/emp/changeLocation", {
                 token: token, dept: dept, subdept: subdept, location: subdept
             },
                 onSubmitClose());
             window.location.reload();
         } else {
-            axios.post("http://localhost:3000/emp/changeLocation", {
+            axios.post("http://192.168.1.52:3000/emp/changeLocation", {
                 token: token, dept: dept, subdept: subdept, location: location
             },
                 onSubmitClose());

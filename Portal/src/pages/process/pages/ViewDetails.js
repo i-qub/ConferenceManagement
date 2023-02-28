@@ -26,7 +26,7 @@ export default function ViewDetails(props) {
 
     useEffect(() => {
         const { token } = props;
-        axios.post('http://localhost:3000/emp/viewDetails', {
+        axios.post('http://192.168.1.52:3000/emp/viewDetails', {
             token: token
         }).then((response) => {
             setName(response.data[0].name);
@@ -96,7 +96,7 @@ export default function ViewDetails(props) {
     const updateEmployee = (event) => {
         event.preventDefault();
         if (dept === 'Melting') {
-            axios.post("http://localhost:3000/emp/allocateLocation", {
+            axios.post("http://192.168.1.52:3000/emp/allocateLocation", {
                 token: token,
                 role: role,
                 dept: dept,
@@ -106,7 +106,7 @@ export default function ViewDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else if (dept === 'Fettling') {
-            axios.post("http://localhost:3000/emp/allocateLocation", {
+            axios.post("http://192.168.1.52:3000/emp/allocateLocation", {
                 token: token,
                 role: role,
                 dept: dept,
@@ -116,7 +116,7 @@ export default function ViewDetails(props) {
                 onSubmitClose());
             window.location.reload();
         } else {
-            axios.post("http://localhost:3000/emp/allocateLocation", {
+            axios.post("http://192.168.1.52:3000/emp/allocateLocation", {
                 token: token,
                 role: role,
                 dept: dept,

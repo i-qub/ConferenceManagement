@@ -32,14 +32,14 @@ function PendingList() {
         if (user[0].role === 'contractor') {
             const contractor = user[0].contractor;
             const role = 'employee';
-            axios.post('http://localhost:3000/emp/viewPendingVerify', {
+            axios.post('http://192.168.1.52:3000/emp/viewPendingVerify', {
                 contractor: contractor,
                 role: role
             }).then((response) => {
                 setView(response.data);
             });
         } else {
-            axios.get('http://localhost:3000/emp/viewAllPendingVerify')
+            axios.get('http://192.168.1.52:3000/emp/viewAllPendingVerify')
                 .then((response) => {
                     setView(response.data);
                 });

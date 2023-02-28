@@ -28,7 +28,7 @@ export default function ViewDetails(props) {
 
     useEffect(() => {
         const { token } = props;
-        axios.post('http://localhost:3000/emp/viewDetails', {
+        axios.post('http://192.168.1.52:3000/emp/viewDetails', {
             token: token
         }).then((response) => {
             setVerified(response.data[0].verified);
@@ -106,7 +106,7 @@ export default function ViewDetails(props) {
 
     const handleReject = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:3000/emp/rejectVerification", {
+        axios.post("http://192.168.1.52:3000/emp/rejectVerification", {
             token: token,
             rejectcmt: rejectcmt
         },
@@ -122,7 +122,7 @@ export default function ViewDetails(props) {
     const verifyEmployee = (event) => {
         event.preventDefault();
         if (token !== '') {
-            axios.post("http://localhost:3000/emp/verifyEmployee", {
+            axios.post("http://192.168.1.52:3000/emp/verifyEmployee", {
                 token: token,
                 name: name,
                 dob: dob,

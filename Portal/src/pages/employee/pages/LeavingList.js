@@ -33,13 +33,13 @@ function LeavingList() {
         const user = getUser();
         if (user[0].role === 'contractor') {
             const contractor = user[0].contractor;
-            axios.post('http://localhost:3000/emp/leavingListOfContarctor', {
+            axios.post('http://192.168.1.52:3000/emp/leavingListOfContarctor', {
                 contractor: contractor
             }).then((response) => {
                 setView(response.data);
             });
         } else {
-            axios.get('http://localhost:3000/emp/leavingListOfAll')
+            axios.get('http://192.168.1.52:3000/emp/leavingListOfAll')
                 .then((response) => {
                     setView(response.data);
                 });

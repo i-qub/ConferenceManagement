@@ -58,7 +58,7 @@ function ActualEmployees(props) {
     useEffect(() => {
         const { subdept } = props;
         const { shift } = props;
-        axios.post('http://localhost:3000/mp/getManpowerData', { subdept: subdept, shift: shift, verified: 'YES' })
+        axios.post('http://192.168.1.52:3000/mp/getManpowerData', { subdept: subdept, shift: shift, verified: 'YES' })
             .then((response) => { setView(response.data); });
     }, [props]);
 
@@ -90,7 +90,7 @@ function ActualEmployees(props) {
                         {
                             onClick: (event, rowData) => {
                                 event.stopPropagation();
-                                axios.post('http://localhost:3000/mp/verifyManpower', {
+                                axios.post('http://192.168.1.52:3000/mp/verifyManpower', {
                                     token: rowData.token,
                                     subdept: rowData.subdept,
                                     punchin: rowData.punchin,

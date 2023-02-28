@@ -24,7 +24,7 @@ function ViewRequirementsReport(props) {
         const { token } = props;
         const { startDate } = props;
         const { endDate } = props;
-        axios.post('http://localhost:3000/report/requirementsReport', {
+        axios.post('http://192.168.1.52:3000/report/requirementsReport', {
             token: token,
             startDate: startDate,
             endDate: endDate

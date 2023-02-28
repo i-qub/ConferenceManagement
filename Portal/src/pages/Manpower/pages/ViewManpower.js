@@ -73,7 +73,7 @@ function ViewManpower(props) {
         const { subdept } = props;
         const { location } = props;
         const { shift } = props;
-        axios.post('http://localhost:3000/mp/getLocationData', {
+        axios.post('http://192.168.1.52:3000/mp/getLocationData', {
             subdept: subdept,
             location: location,
             shift: shift

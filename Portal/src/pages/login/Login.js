@@ -76,7 +76,7 @@ function Login(props) {
     setError(null);
     setLoading(true);
     axios
-      .post("http://localhost:3000/login/login", {
+      .post("http://192.168.1.52:3000/login/login", {
         username: username,
         password: password,
       })

@@ -26,17 +26,17 @@ const adminPassword = "123456";
     event.preventDefault();
     axios
       .get(
-        `http://localhost:3000/login/getUserInfoByUserId?userId=${empDetails.token}`,
+        `http://192.168.1.52:3000/getUserInfoByUserId?userId=${empDetails.token}`,
       )
       .then((response) => {
         setEmpDetails(response.data.data);
-        // console.log(response.data);
+        console.log(response.data);
       });
 
     let newEmpDetails = { ...empDetails, password: "123456" };
     console.log(newEmpDetails);
     axios
-      .post(`http://localhost:3000/login/updateUser`, {
+      .post(`http://192.168.1.52:3000/login/updateUser`, {
         ...newEmpDetails,
       })
       .then((response) => {
@@ -44,6 +44,14 @@ const adminPassword = "123456";
       });
       onSubmitClose();
   };
+  function passwordlength(password){ 
+    if(password.length < 6)
+    {
+       alert("Password must not be less then 6 characters");
+
+    }
+
+  }
   return (
     <>
       <form onSubmit={()=>{if(adminPassword===password) 
@@ -60,6 +68,7 @@ const adminPassword = "123456";
               required
               type="number"
               label="Token Number"
+              
               fullWidth
               value={empDetails.token}
               onChange={(e) => {
@@ -75,8 +84,9 @@ const adminPassword = "123456";
               label="Administrator Password"
               fullWidth
               value={password}
-              onChange={(e) => {
+              onBlur={(e) => {
                 setPassword(e.target.value);
+                passwordlength(setPassword(e.target.value));
               }}
             />
           </Grid>

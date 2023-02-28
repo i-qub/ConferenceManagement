@@ -22,19 +22,19 @@ export default function Requirements(props) {
   const [fettling, set_fettling] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/req/shell_core').then((response) => { set_shell_core(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/cold_box').then((response) => { set_cold_box(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/arpa_900').then((response) => { set_arpa_900(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/arpa_450').then((response) => { set_arpa_450(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/w_b_q_3').then((response) => { set_w_b_q_3(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/hand_moulding').then((response) => { set_hand_moulding(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/melting').then((response) => { set_melting(response.data[0].requirement); });
-    axios.get('http://localhost:3000/req/fettling').then((response) => { set_fettling(response.data[0].requirement); setLoading(false); });
+    axios.get('http://192.168.1.52:3000/req/shell_core').then((response) => { set_shell_core(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/cold_box').then((response) => { set_cold_box(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/arpa_900').then((response) => { set_arpa_900(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/arpa_450').then((response) => { set_arpa_450(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/w_b_q_3').then((response) => { set_w_b_q_3(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/hand_moulding').then((response) => { set_hand_moulding(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/melting').then((response) => { set_melting(response.data[0].requirement); });
+    axios.get('http://192.168.1.52:3000/req/fettling').then((response) => { set_fettling(response.data[0].requirement); setLoading(false); });
   }, []);
 
   const changeRequirements = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3000/req/changeRequirements", {
+    axios.post("http://192.168.1.52:3000/req/changeRequirements", {
       shell_core: shell_core,
       cold_box: cold_box,
       arpa_900: arpa_900,

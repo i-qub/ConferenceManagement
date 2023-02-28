@@ -66,7 +66,7 @@ export default function EmpRegistration(props) {
   const newEmployee = (event) => {
     event.preventDefault();
     axios.post(
-      "http://localhost:3000/emp/addEmployee",
+      "http://192.168.1.52:3000/emp/addEmployee",
       {
         token: token,
         name: name,
