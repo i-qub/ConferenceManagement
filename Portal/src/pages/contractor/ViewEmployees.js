@@ -36,7 +36,7 @@ function ViewEmployees(props) {
   useEffect(() => {
     const { contractor } = props;
     axios
-      .post("http://192.168.1.52:3000/emp/viewContractorEmployee", {
+      .post("http://localhost/emp/viewContractorEmployee", {
         contractor: contractor,
       })
       .then((response) => {

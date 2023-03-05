@@ -55,13 +55,13 @@ function Contractor() {
 
   const [view, setView] = useState([]);
   useEffect(() => {
-    axios.get("http://192.168.1.52:3000/con/viewContractor").then((response) => {
+    axios.get("http://localhost:3000/con/viewContractor").then((response) => {
       setView(response.data);
     });
   }, []);
 
   const deleteUser = async (id) => {
-    await axios.get(`http://192.168.1.52:3000/con/deleteMeeting?id=${id}`);
+    await axios.get(`http://localhost:3000/con/deleteMeeting?id=${id}`);
     // props.history.push("/contractorNew");
     window.location.reload(true);
   };

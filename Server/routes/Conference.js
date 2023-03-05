@@ -78,7 +78,7 @@ router.get("/getDailyData", async (req, res, next) => {
       .add(365, "days")
       .format("YYYY-MM-DD");
     let data = await conference.find({
-      meetdate: {////////////////////////////
+      meetdate: {
         $lte: days,
       },
     });

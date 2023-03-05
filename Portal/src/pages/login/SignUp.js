@@ -27,7 +27,7 @@ export default function SignUp(props) {
     event.preventDefault();
     axios
       .post(
-        "http://192.168.1.52:3000/login/signUp",
+        "http://loclhost:3000/login/signUp",
         {
           ...empDetails,
         },

@@ -55,7 +55,7 @@ export default function ConRegistration(props) {
     var date = fromdate;
     let count = 0;
     while (moment(date, "YYYY-MM-DD").isSameOrBefore(todate)) {
-      Axios.post("http://192.168.1.52:3000/con/addContractor", {
+      Axios.post("http://localhost:3000/con/addContractor", {
         meettitle: meettitle,
         meetdate: date,
         fromtime: fromtime,
@@ -82,7 +82,7 @@ export default function ConRegistration(props) {
     // }
   };
   useEffect(() => {
-    axios.get("http://192.168.1.52:3000/con/getDailyData").then((response) => {
+    axios.get("http://localhost:3000/con/getDailyData").then((response) => {
       setApiData(response.data.data);
       console.log(response.data.data);
     });

@@ -42,9 +42,8 @@ export default function ForgotPassword(props) {
       })
       .then((response) => {
         console.log(response);
-      },
-      onSubmitClose(),
-      );
+      });
+    // onSubmitClose();
   };
   function passwordlength(password) {
     if (password.length < 6) {
