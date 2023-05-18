@@ -25,7 +25,7 @@ export default function ForgotPassword(props) {
   const getUser = async (tokenNumber) => {
     await axios
       .get(
-        `http://localhost:3000/login/getUserInfoByUserId?userId=${tokenNumber}`,
+        `http://192.168.1.52:3000/login/getUserInfoByUserId?userId=${tokenNumber}`,
       )
       .then((response) => {
         setEmpDetails(response.data.data);
@@ -37,14 +37,14 @@ export default function ForgotPassword(props) {
     let newEmpDetails = { ...empDetails, password: password };
     console.log(newEmpDetails);
     axios
-      .post(`http://localhost:3000/login/updateUser`, {
+      .post(`http://192.168.1.52:3000/login/updateUser`, {
         ...newEmpDetails,
       })
       .then((response) => {
         console.log(response);
-      },
-      onSubmitClose(),
+      }
       );
+      onSubmitClose();
   };
   function passwordlength(password) {
     if (password.length < 6) {
@@ -130,14 +130,13 @@ export default function ForgotPassword(props) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
               <Button
+                type="submit"
                 style={{
                   fontSize: "18px",
                 }}
                 color="primary"
                 variant="contained"
-                onClick={(e) => {
-                  forgotPassword();
-                }}
+                // dd
               >
                 Reset Password
               </Button>

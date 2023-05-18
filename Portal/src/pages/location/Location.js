@@ -13,7 +13,7 @@ function Location() {
     const user = getUser();
     const token = user[0].token;
 
-    axios.post('http://localhost:3000/emp/getLocationDetails', {
+    axios.post('http://192.168.1.52:3000/emp/getLocationDetails', {
       token: token
     }).then((response) => {
       setData(response.data);

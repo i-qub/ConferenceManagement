@@ -25,7 +25,7 @@ function Demo1() {
   // const [locale, setLocale] = useState("en-US");
   const [dispConfHall, setDispConfHall] = useState("Conference Hall");
   useEffect(() => {
-    axios.get("http://localhost:3000/con/getDailyData").then((response) => {
+    axios.get("http://192.168.1.52:3000/con/getDailyData").then((response) => {
       setApiData(response.data.data);
        console.log(response.data.data);
     });
@@ -46,7 +46,7 @@ function Demo1() {
     let endDate = new Date(
       new Date(data.meetdate).getFullYear(),
       new Date(data.meetdate).getMonth(),
-      data.meetdate.slice(-2), 
+      data.meetdate.slice(-2),
       data.totime.split(":")[0],
       data.totime.split(":")[1],
     );

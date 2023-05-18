@@ -62,7 +62,7 @@ function Leave(props) {
     if (user[0].role === 'employee') {
       const token = user[0].token;
       event.preventDefault();
-      axios.post("http://localhost:3000/leave/applyLeave", {
+      axios.post("http://192.168.1.52:3000/leave/applyLeave", {
         type: type,
         from: from,
         to: to,
@@ -74,7 +74,7 @@ function Leave(props) {
       window.location.reload();
     } else {
       event.preventDefault();
-      axios.post("http://localhost:3000/leave/applyLeave", {
+      axios.post("http://192.168.1.52:3000/leave/applyLeave", {
         type: type,
         from: from,
         to: to,
@@ -92,14 +92,14 @@ function Leave(props) {
 
     if (user[0].role === 'employee') {
       const token = user[0].token;
-      axios.post('http://localhost:3000/leave/leaveAppliedByEmp', {
+      axios.post('http://192.168.1.52:3000/leave/leaveAppliedByEmp', {
         token: token
       }).then((response) => {
         setView(response.data);
       });
     } else if (user[0].role === 'contractor') {
       const contractor = user[0].contractor;
-      axios.post('http://localhost:3000/leave/leaveAppliedByContractor', {
+      axios.post('http://192.168.1.52:3000/leave/leaveAppliedByContractor', {
         contractor: contractor
       }).then((response) => {
         setView(response.data);
@@ -107,13 +107,13 @@ function Leave(props) {
     } else if (user[0].role === 'hod') {
       const dept = user[0].dept;
       console.log(dept);
-      axios.post('http://localhost:3000/leave/leaveAppliedByHod', {
+      axios.post('http://192.168.1.52:3000/leave/leaveAppliedByHod', {
         dept: dept
       }).then((response) => {
         setView(response.data);
       });
     } else {
-      axios.get('http://localhost:3000/leave/leaveAppliedAll')
+      axios.get('http://192.168.1.52:3000/leave/leaveAppliedAll')
         .then((response) => {
           setView(response.data);
         });
@@ -127,7 +127,7 @@ function Leave(props) {
   };
 
   const ApproveLeave = () => {
-    axios.post('http://localhost:3000/leave/approveLeave', {
+    axios.post('http://192.168.1.52:3000/leave/approveLeave', {
       token: emptoken,
       applieddate: applieddate,
       from: from,
@@ -138,7 +138,7 @@ function Leave(props) {
   };
 
   const RejectLeave = () => {
-    axios.post('http://localhost:3000/leave/approveLeave', {
+    axios.post('http://192.168.1.52:3000/leave/approveLeave', {
       token: emptoken,
       applieddate: applieddate,
       from: from,

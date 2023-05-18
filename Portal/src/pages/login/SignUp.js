@@ -27,14 +27,18 @@ export default function SignUp(props) {
     event.preventDefault();
     axios
       .post(
-        "http://loclhost:3000/login/signUp",
+        "http://192.168.1.52:3000/login/signUp",
         {
           ...empDetails,
         },
-       
+        alert("New User Registered"),
+        onSubmitClose(),
       )
       .then((response) => {
-        alert(response.data);
+        // alert("New User Registered");
+        setLoading(false);
+
+        return;
       })
       .catch((error) => {
         setLoading(false);
@@ -42,15 +46,6 @@ export default function SignUp(props) {
       });
     window.location.reload();
   };
-
-  function passwordlength(password){ 
-    if(password.length < 6)
-    {
-       alert("Password must not be less then 6 characters");
-
-    }
-
-  }
 
   return (
     <>
@@ -72,6 +67,7 @@ export default function SignUp(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+            required
               type="String"
               label="Name"
               fullWidth
@@ -85,7 +81,7 @@ export default function SignUp(props) {
             />
           </Grid>
 
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <label>Date of Birth</label>
 
             <TextField
@@ -97,24 +93,42 @@ export default function SignUp(props) {
                 setEmpDetails(newEmpDetails);
               }}
             />
-          </Grid>
+          </Grid> */}
+
+          {/* <Grid item xs={12} sm={4}>
+            <FormControl required>
+              <InputLabel
+                htmlFor="age-native-required"
+                required
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              >
+                Gender
+              </InputLabel>
+              <Select
+                native
+                onChange={(e) => {
+                  let newEmpDetails = { ...empDetails, gender: e.target.value };
+                  setEmpDetails(newEmpDetails);
+                }}
+                
+                style={{ width: "100%" }}
+              >
+                <option aria-label="None" value=" " />
+                <option value="Male">Male</option>
+                <option value="Male">Female</option>
+                
+              </Select>
+            </FormControl>
+          </Grid> */}
 
           <Grid item xs={12} sm={4}>
             <TextField
-              required
-              label="Gender"
-              fullWidth
-              onChange={(e) => {
-                let newEmpDetails = { ...empDetails, gender: e.target.value };
-                setEmpDetails(newEmpDetails);
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={4}>
-            <TextField
+            required
               type="String"
-              label="email"
+              label="Email"
               fullWidth
               InputLabelProps={{
                 shrink: true,
@@ -130,6 +144,7 @@ export default function SignUp(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
+            required
               type="String"
               label="Mobile Number"
               fullWidth
@@ -142,7 +157,7 @@ export default function SignUp(props) {
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <TextField
               type="String"
               label="Alternate Mobile Number"
@@ -155,28 +170,25 @@ export default function SignUp(props) {
                 setEmpDetails(newEmpDetails);
               }}
             />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} sm={4}>
             <TextField
-              required
+            required
               type="Password"
               label="Set Password"
-              // value={password}
               fullWidth
               InputLabelProps={{
                 shrink: true,
               }}
-              
-              onBlur={(e) => {
+              onChange={(e) => {
                 let newEmpDetails = { ...empDetails, password: e.target.value };
-                // setEmpDetails(newEmpDetails);
-                passwordlength({...empDetails,"password": e.target.value});
+                setEmpDetails(newEmpDetails);
               }}
             />
           </Grid>
 
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <FormControl required>
               <InputLabel
                 htmlFor="age-native-required"
@@ -206,10 +218,21 @@ export default function SignUp(props) {
                 <option value="I-QUB">I-QUB</option>
               </Select>
             </FormControl>
-          
-          </Grid>
+            {/* <TextField
+              type="String"
+              label="Department"
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={(e) => {
+                let newEmpDetails = { ...empDetails, dept: e.target.value };
+                setEmpDetails(newEmpDetails);
+              }}
+            /> */}
+          {/* </Grid> */}
           <Grid item xs={12} sm={4}>
-          <FormControl required>
+            <FormControl required>
               <InputLabel
                 htmlFor="age-native-required"
                 required
@@ -220,7 +243,7 @@ export default function SignUp(props) {
               >
                 Verified
               </InputLabel>
-          <Select
+              <Select
                 native
                 onChange={(e) => {
                   let newEmpDetails = {
@@ -231,12 +254,24 @@ export default function SignUp(props) {
                 }}
                 style={{ width: "100%" }}
               >
-                <option aria-label="None" value="" />
+                <option aria-label="None" value=" " />
                 <option value="YES">YES</option>
-                {/* <option value="NO">NO</option> */}
+                
               </Select>
             </FormControl>
-          </Grid> 
+            {/* <TextField
+              type="String"
+              label="Verified"
+              fullWidth
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={(e) => {
+                let newEmpDetails = { ...empDetails, verified: e.target.value };
+                setEmpDetails(newEmpDetails);
+              }}
+            /> */}
+          </Grid>
 
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>

@@ -3,20 +3,16 @@ import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import {PhoneInput,isValidPhoneNumber } from "react-phone-number-input/input";
-// import PhoneInput, { formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber } from 'react-phone-number-input'
 
 // import FormGroup from "@material-ui/core/FormGroup";
 // import Checkbox from "@material-ui/core/Checkbox";
-import "react-datepicker/dist/react-datepicker.css";
-import Datepicker from "react-datepicker";
 import FormLabel from "@material-ui/core/FormLabel";
 import { Button } from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
-import * as moment from "moment"
+import * as moment from "moment";
 import axios from "axios";
 // import { setUserSession } from "../../../components/Utils/Common";
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +51,7 @@ export default function ConRegistration(props) {
     var date = fromdate;
     let count = 0;
     while (moment(date, "YYYY-MM-DD").isSameOrBefore(todate)) {
-      Axios.post("http://localhost:3000/con/addContractor", {
+      Axios.post("http://192.168.1.52:3000/con/addContractor", {
         meettitle: meettitle,
         meetdate: date,
         fromtime: fromtime,
@@ -73,8 +69,8 @@ export default function ConRegistration(props) {
         .clone()
         .add(1, "days")
         .format("YYYY-MM-DD");
-      count = count + 1;
-      alert(count);
+      // count = count + 1;
+      // alert(count);
     }
 
     onSubmitClose();
@@ -82,7 +78,7 @@ export default function ConRegistration(props) {
     // }
   };
   useEffect(() => {
-    axios.get("http://localhost:3000/con/getDailyData").then((response) => {
+    axios.get("http://192.168.1.52:3000/con/getDailyData").then((response) => {
       setApiData(response.data.data);
       console.log(response.data.data);
     });
@@ -127,19 +123,6 @@ export default function ConRegistration(props) {
       setToDate("");
     }
   }
-  function validPhoneNum(phonenum) {
-    if (phonenum.length < 10 || phonenum.length > 10) {
-      alert("Password must not be less or more then 10 characters");
-      setMobile1("");
-    }
-  }
-  const handleChange = (e) => {
-    // Here we are checking if the length is equal to 10
-    if (e.target.value.length === 10) {
-      window.alert("Phone Number shouldn't exceed 10 characters");
-    }
-    setMobile1(e.target.value);
-  };
 
   function checkAvailability(userTime) {
     console.log(userTime);
@@ -216,6 +199,7 @@ export default function ConRegistration(props) {
            </Grid> */}
           <Grid item xs={12} sm={4}>
             <TextField
+              required
               type="date"
               label="From date"
               // disabled={!multipleMeet}
@@ -230,8 +214,10 @@ export default function ConRegistration(props) {
               value={fromdate}
             />
           </Grid>
+
           <Grid item xs={12} sm={4}>
             <TextField
+              required
               type="date"
               label="To date"
               value={todate}
@@ -248,8 +234,9 @@ export default function ConRegistration(props) {
             />
           </Grid>
           <Grid item xs={12} sm={4}>
-            {/* <FormLabel>From Time</FormLabel>
+            {/* <FormLabel required>From Time</FormLabel>
             <TextField
+            required
               type="time"
               // label="From Time"
               value={fromtime}
@@ -261,22 +248,105 @@ export default function ConRegistration(props) {
             <FormControl required className={classes.formControl}>
               <InputLabel
                 htmlFor="age-native-required"
-                // required
+                required
                 className={classes.formControl}
               >
                 From Time
               </InputLabel>
               <Select
                 native
+                value={fromtime}
                 onChange={(event) => {
                   setFTime(event.target.value);
+                  setConfHall("");
+                  setTTime("");
+                }}
+                style={{ width: "70%" }}
+              >
+                <option aria-label="None" value=" " />
+                <option value="09:00">09:00 am</option>
+                <option value="09:15">09:15 am</option>
+                <option value="09:30">09:30 am</option>
+                <option value="09:45">09:45 am</option>
+                <option value="10:00">10:00 am</option>
+                <option value="10:15">10:15 am</option>
+                <option value="10:30">10:30 am</option>
+                <option value="10:45">10:45 am</option>
+                <option value="11:00">11:00 am</option>
+                <option value="11:15">11:15 am</option>
+                <option value="11:30">11:30 am</option>
+                <option value="11:45">11:45 am</option>
+                <option value="12:00">12:00 pm</option>
+                <option value="12:15">12:15 pm</option>
+                <option value="12:30">12:30 pm</option>
+                <option value="12:45">12:45 pm</option>
+                <option value="13:00">01:00 pm</option>
+                <option value="13:15">01:15 pm</option>
+                <option value="13:30">01:30 pm</option>
+                <option value="13:45">01:45 pm</option>
+                <option value="14:00">02:00 pm</option>
+                <option value="14:15">02:15 pm</option>
+                <option value="14:30">02:30 pm</option>
+                <option value="14:45">02:45 pm</option>
+                <option value="15:00">03:00 pm</option>
+                <option value="15:15">03:15 pm</option>
+                <option value="15:30">03:30 pm</option>
+                <option value="15:45">03:45 pm</option>
+                <option value="16:00">04:00 pm</option>
+                <option value="16:15">04:15 pm</option>
+                <option value="16:30">04:30 pm</option>
+                <option value="16:45">04:45 pm</option>
+                <option value="17:00">05:00 pm</option>
+                <option value="17:15">05:15 pm</option>
+                <option value="17:30">05:30 pm</option>
+                <option value="17:45">05:45 pm</option>
+                <option value="18:00">06:00 pm</option>
+                <option value="18:15">06:15 pm</option>
+                <option value="18:30">06:30 pm</option>
+                <option value="18:45">06:45 pm</option>
+                <option value="19:00">07:00 pm</option>
+                <option value="19:15">07:15 pm</option>
+                <option value="19:30">07:30 pm</option>
+                <option value="19:45">07:45 pm</option>
+                <option value="20:00">08:00 pm</option>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            {/* <FormLabel required>To Time</FormLabel>
+            <TextField
+            required
+              type="time"
+              // label="To Time"
+              value={totime}
+              fullWidth
+              onChange={(event) => {
+                setTTime(event.target.value);
+                timevalidation([fromtime, event.target.value]);
+              }}
+            /> */}
+            <FormControl required className={classes.formControl}>
+              <InputLabel
+                htmlFor="age-native-required"
+                // required
+                className={classes.formControl}
+              >
+                To Time
+              </InputLabel>
+              <Select
+                native
+                value={totime}
+                onChange={(event) => {
+                  setTTime(event.target.value);
+                  setConfHall("");
+                  timevalidation([fromtime, event.target.value]);
                 }}
                 style={{ width: "70%" }}
               >
                 <option aria-label="None" value="" />
-                <option value="9:00">09:00 am</option>
-                <option value="9:15">09:15 am</option>
-                <option value="9:30">09:30 am</option>
+                <option value="09:00">09:00 am</option>
+                <option value="09:15">09:15 am</option>
+                <option value="09:30">09:30 am</option>
                 <option value="9:45">09:45 am</option>
                 <option value="10:00">10:00 am</option>
                 <option value="10:15">10:15 am</option>
@@ -319,21 +389,8 @@ export default function ConRegistration(props) {
                 <option value="19:30">07:30 pm</option>
                 <option value="19:45">07:45 pm</option>
                 <option value="20:00">08:00 pm</option>
-            
               </Select>
             </FormControl>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <FormLabel>From Time</FormLabel>
-            <TextField
-              type="time"
-              // label="From Time"
-              value={totime}
-              fullWidth
-              onChange={(event) => {
-                setTTime(event.target.value);
-              }}
-            />
           </Grid>
           <Grid item xs={12} sm={4}>
             <FormControl required className={classes.formControl}>
@@ -390,7 +447,7 @@ export default function ConRegistration(props) {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              // required
+              required
               label="Meeting Organizer"
               fullWidth
               onChange={(event) => {
@@ -418,14 +475,10 @@ export default function ConRegistration(props) {
               inputProps={{ maxLength: 10 }}
               onChange={(event) => {
                 setMobile1(event.target.value);
-
-                if (event.target.value.length > 10) {
-                  alert("please check your phone number");
-                }
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          {/* <Grid item xs={12} sm={4}>
             <TextField
               type="number"
               label="Alternate No."
@@ -435,7 +488,7 @@ export default function ConRegistration(props) {
                 setMobile2(event.target.value);
               }}
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm={4}>
             <FormControl required className={classes.formControl}>
               <InputLabel
@@ -453,7 +506,8 @@ export default function ConRegistration(props) {
                 style={{ width: "100%" }}
               >
                 <option aria-label="None" value="" />
-                <option value="Anywhere">Anywhere</option>
+                <option value="Supply Chain">Supply Chain</option>
+                <option value="System and Strategy">System and Strategy</option>
                 <option value="Core Shop">Core Shop</option>
                 <option value="Moulding">Moulding</option>
                 <option value="Melting">Melting</option>
@@ -461,6 +515,18 @@ export default function ConRegistration(props) {
                 <option value="HR">HR</option>
                 <option value="IT">IT</option>
                 <option value="I-QUB">I-QUB</option>
+                <option value="PPC">PPC</option>
+                <option value="Purchase">Purchase</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Foundry Maintenance">Foundry Maintenance</option>
+                <option value="Spectro">Spectro</option>
+                <option value="Quality Assurance">Quality Assurance</option>
+                <option value="Foundry Process Control">
+                  Foundry Process Control
+                </option>
+                <option value="Spectro">Spectro</option>
+                <option value="Quality Assurance">Quality Assurance</option>
+                <option value="Other">Other</option>
               </Select>
             </FormControl>
           </Grid>
@@ -474,6 +540,10 @@ export default function ConRegistration(props) {
                 disabled={submitState}
                 color="primary"
                 variant="contained"
+                onClick={() => {
+                  ToDatevalidation([fromdate, todate]);
+                  timevalidation([fromtime, totime]);
+                }}
               >
                 Submit
               </Button>

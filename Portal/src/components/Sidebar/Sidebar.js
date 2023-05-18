@@ -48,7 +48,7 @@ const hrMenu = [
 const hodMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
   // { id: 1, label: "Manpower", link: "/manpower", icon: <GroupIcon />, },
-  { id: 1, label: "Contractor", link: "/contractor", icon: <PortraitIcon /> },
+  { id: 1, label: "Add Booking", link: "/contractor", icon: <PortraitIcon /> },
   // { id: 3, label: "Employees", link: "/employee", icon: <PersonIcon />, },
   // { id: 4, label: "Allocation", link: "/allocation", icon: <PersonPinCircleIcon />, },
   // { id: 5, label: "Process Info", link: "/process", icon: <DonutLargeIcon />, },
@@ -61,7 +61,7 @@ const contractorMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
   {
     id: 1,
-    label: "Contractor",
+    label: "Add Booking",
     link: "/contractorNew",
     icon: <PortraitIcon />,
   },
@@ -75,7 +75,7 @@ const empMenu = [
   { id: 0, label: "Dashboard", link: "/dashboard", icon: <HomeIcon /> },
   {
     id: 1,
-    label: "Contractor",
+    label: "Add Booking",
     link: "/contractorNew",
     icon: <PortraitIcon />,
   },
